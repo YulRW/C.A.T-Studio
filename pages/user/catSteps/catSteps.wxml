@@ -1,0 +1,90 @@
+<!-- 面试进度 -->
+<view class="out100">
+
+    <view class="view-CC">
+
+        <van-steps steps="{{ catSteps }}" active="{{ catActive }}" direction="vertical" active-color="var(--main-color)" custom-class='stepRoot'/>
+    </view>
+
+
+
+    <button class="news" bindtap="msg" size="default" style="width:100vw" type='primary'>订阅消息，下次有新消息通知我</button>
+
+</view>
+
+
+
+<!-- active-icon="success" -->
+<!-- vertical/horizontal -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <view class="cu-timeline">
+  <view class="cu-time">流程</view>
+  <view class="cu-item text-blue">
+    <view class="content bg-blue">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white">未</view>
+        <view class="cu-tag line-white">报名</view>
+      </view>
+      <view class="margin-top">未报名未报名未报名未报名未报名未报名未报名未报名未报名未报名未报名未报名未报名未报名未报名未报名未报名未报名未报名未报名未报名未报名未报名未报名未报名未报名未报名未报名未报名</view>
+    </view>
+  </view>
+  <view class="cu-item text-blue">
+    <view class="content bg-blue">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white">已</view>
+        <view class="cu-tag line-white">报名</view>
+      </view>
+      <view class="margin-top">已报名已报名已报名已报名已报名已报名已报名已报名已报名已报名已报名已报名已报名已报名已报名已报名已报名</view>
+    </view>
+  </view>
+
+  <view class="cu-item text-blue">
+    <view class="content bg-blue">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white">面试</view>
+        <view class="cu-tag line-white">一轮</view>
+      </view>
+      <view class="margin-top">面试一轮面试一轮面试一轮面试一轮面试一轮面试一轮面试一轮面试一轮面试一轮面试一轮面试一轮面试一轮面试一轮面试一轮面试一轮面试一轮面试一轮面试一轮</view>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">面试</view>
+        <view class="cu-tag line-cyan">二轮</view>
+      </view>
+      <view class="margin-top">面试二轮面试二轮面试二轮面试二轮面试二轮面试二轮面试二轮面试二轮面试二轮面试二轮面试二轮面试二轮面试二轮面试二轮面试二轮面试二轮面试二轮</view>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">考核</view>
+        <view class="cu-tag line-cyan">一轮</view>
+      </view>
+      <view class="margin-top">考核一轮考核一轮考核一轮考核一轮考核一轮考核一轮考核一轮考核一轮考核一轮考核一轮考核一轮考核一轮考核一轮考核一轮考核一轮考核一轮考核一轮考核一轮考核一轮考核一轮考核一轮考核一轮考核一轮考核一轮考核一轮考核一轮</view>
+    </view>
+  </view>
+
+   <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">考核</view>
+        <view class="cu-tag line-cyan">二轮</view>
+      </view>
+      <view class="margin-top">考核二轮考核二轮考核二轮考核二轮考核二轮考核二轮考核二轮考核二轮考核二轮考核二轮考核二轮考核二轮考核二轮考核二轮考核二轮考核二轮考核二轮考核二轮考核二轮考核二轮考核二轮考核二轮考核二轮考核二轮</view>
+    </view>
+  </view>
+
+</view> -->

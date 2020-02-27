@@ -1,0 +1,30 @@
+/* pages/catSteps/catSteps.wxss */
+.out100{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.view-CC{
+    position: absolute;
+    width: 50vw;
+    height: 50vh;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+
+}
+
+.stepRoot{
+    text-align: center;
+    font-size: 40rpx;
+}
+
+
+.news{
+    position: fixed;
+    bottom: 0;
+    /* width: 100vw; */
+}

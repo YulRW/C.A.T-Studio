@@ -1,0 +1,17 @@
+<view class="out-bg">
+
+    <van-cell-group title=''>
+        <van-cell title="检查更新" is-link  />
+        <van-cell title="关于 C.A.T" is-link  />
+        <van-cell title="分享 C.A.T 给好友" is-link  />
+        <van-cell title="用户协议" is-link  />
+        <van-cell title="隐私政策" is-link  />
+
+        <van-cell title="错误日志" is-link  link-type="navigateTo"
+  url="/pages/bugLog/bugLog" title-class='errorMsgClass'/>
+    </van-cell-group>
+
+    <yy-footer title='C.A.T APP'/>
+
+
+</view>

@@ -1,0 +1,20 @@
+.chatCard{
+    padding: 20rpx 25rpx;
+    border-bottom: 1rpx var(--sec-color) solid;
+    transition: .2s;
+}
+
+.chatCard:active{
+    background-color: #f1f1f1;
+}
+
+.chatContent{
+    padding-left: 100rpx;
+    font-size: 25rpx;
+}
+
+
+.popupClass{
+    width: 50vw;
+    height: 20vh;
+}

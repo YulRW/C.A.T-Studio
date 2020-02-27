@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "van-tag": "/miniprogram_npm/@vant/weapp/tag/index",
+        "yy-user-header":"/components/yy-user-header/yy-user-header"
+    }
+}

@@ -1,0 +1,4 @@
+/* pages/catAbout/catAbout.wxss */
+.errorMsgClass{
+    color:#ca0c16;
+}

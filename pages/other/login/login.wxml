@@ -1,0 +1,70 @@
+<view class="bg">
+
+    <view class="logo_title">
+        <image mode="widthFix" src="/assets/images/logo/logo.png"></image>
+
+    </view>
+
+
+
+
+    <view class="main">
+        <view class="main_in">
+
+            <!-- 小标题 -->
+            <view class="sec_title">
+
+                登录
+            </view>
+            <!-- 表单输入 -->
+            <view class="form">
+
+
+                <!-- 学号 -->
+                <view class="num">
+
+                    <view class="input_title">
+                        学号
+                    </view>
+                    <input class="input1"></input>
+                    <view></view>
+
+                </view>
+
+
+
+                <!-- 密码 -->
+                <view>
+                    <view class="input_title">
+                        密码
+                    </view>
+                    <input class="input2"></input>
+                    <view class="tip">密码错误</view>
+                </view>
+
+
+                <view class="btn_text">
+                    <image mode="widthFix" src="/assets/images/logo/logo.png"></image>
+                    <text>C.A.T 工作室</text>
+                </view>
+
+
+
+                <view class="btn">登 录</view>
+
+
+
+
+
+            </view>
+
+            <!-- 页脚 -->
+            <yy-footer class="footer"></yy-footer>
+
+
+        </view>
+
+    </view>
+
+
+</view>

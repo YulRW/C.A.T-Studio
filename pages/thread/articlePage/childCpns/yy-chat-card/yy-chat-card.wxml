@@ -1,0 +1,12 @@
+<view class="chatCard" bindlongtap='chatSelect'>
+    <yy-user-header headerData='{{chatInfo.fromUserInfo}}'></yy-user-header>
+
+    <view class="chatContent">
+        {{chatInfo.comment.content}}
+    </view>
+
+
+    <van-popup show="{{ popShow }}" bind:close="popClose" custom-class="popupClass">内容</van-popup>
+
+
+</view>

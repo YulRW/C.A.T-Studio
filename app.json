@@ -1,0 +1,50 @@
+{
+    "pages": [
+        "pages/user/user/user",
+        "pages/user/progress/progress",
+        "pages/signUp/signUp",
+        "pages/getInfo/getInfo",
+        "pages/studio/studio"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#0f4c81",
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "C.A.T",
+        "navigationStyle": "default",
+        "backgroundColor": "#ffffff",
+        "backgroundTextStyle": "dark",
+        "enablePullDownRefresh": false,
+        "onReachBottomDistance": 50
+    },
+    "tabBar": {
+        "color": "#a8a8a8",
+        "selectedColor": "#43CBFF",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "pages/studio/studio",
+                "text": "简介",
+                "iconPath": "/assets/images/tabbar/studio.png",
+                "selectedIconPath": "/assets/images/tabbar/studio_a.png"
+            },
+            {
+                "pagePath": "pages/signUp/signUp",
+                "text": "报名",
+                "iconPath": "/assets/images/tabbar/signUp.png",
+                "selectedIconPath": "/assets/images/tabbar/signUp_a.png"
+            },
+
+            {
+                "pagePath": "pages/user/user/user",
+                "text": "我的",
+                "iconPath": "/assets/images/tabbar/myInfo.png",
+                "selectedIconPath": "/assets/images/tabbar/myInfo_a.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 10000
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}

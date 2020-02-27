@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "van-cell": "/miniprogram_npm/@vant/weapp/cell/index",
+        "van-cell-group": "/miniprogram_npm/@vant/weapp/cell-group/index",
+        "yy-footer": "/components/yy-footer/yy-footer"
+    },
+    "navigationBarTitleText": "设置",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black"
+    
+}

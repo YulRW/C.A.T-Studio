@@ -1,0 +1,57 @@
+<view class="page" wx:if='{{!isLoading}}'>
+    <view class="weui-msg">
+        <view class="weui-msg__icon-area">
+            <block wx:if='{{notice.iconStatus === true}}'>
+                <icon type="success" size="64"></icon>
+            </block>
+            <block wx:elif="{{notice.iconStatus === false}}">
+                <icon type="warn" size="64"></icon>
+            </block>
+        </view>
+        <view class="weui-msg__text-area">
+            <view class="weui-msg__title">{{notice.title}}</view>
+            <view class="weui-msg__desc">{{notice.content}}
+                <!-- <navigator url="" class="weui-msg__link">文字链接</navigator> -->
+            </view>
+        </view>
+        <block wx:if='{{notice.pictureUrl!==null}}'>
+            <view class="yy-img">
+                <image src="{{notice.pictureUrl}}" data-id='{{notice.pictureUrl}}' mode="widthFix" bindtap="previewImg"></image>
+            </view>
+
+        </block>
+        <block wx:if='{{notice.buttonStatus}}'>
+
+            <view class="weui-msg__opr-area">
+                <view class="weui-btn-area">
+                    <button class="weui-btn" type="primary" catchtap="getNextNotice">下次通知我</button>
+                </view>
+            </view>
+            <view class="weui-msg__tips-area">
+                <view class="weui-msg__tips">建议订阅通知，下次有新消息会在微信发出，便于查看
+                    <!-- <navigator url="" class="weui-msg__link">文字链接</navigator> -->
+                </view>
+            </view>
+        </block>
+        <view class="weui-msg__extra-area">
+            <view class="weui-footer">
+                <view class="weui-footer__links">
+                    <navigator url="/pages/studio/studio" class="weui-footer__link" open-type="switchTab">C.A.T 工作室</navigator>
+                </view>
+                <view class="weui-footer__text">Copyright © 2019-2020 C.A.T Studio</view>
+            </view>
+        </view>
+    </view>
+</view>
+
+
+<view wx:else class="center-x-y">
+
+    <!-- <view class="weui-loadmore">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在加载...</view>
+    </view> -->
+
+    <image src="https://image.weilanwl.com/gif/loading-1.gif" mode="widthFix" class="loading"></image>
+
+</view>

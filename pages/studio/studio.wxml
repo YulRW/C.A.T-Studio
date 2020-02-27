@@ -1,0 +1,19 @@
+<view>
+    <view class="bg-image">
+        <image mode="widthFix" src="/assets/images/logo/logo.png"></image>
+    </view>
+
+    <view class="content">
+        <view class="title">C.A.T工作室简介</view>
+        <view class="textPlain"> C.A.T 工作室成立于2017年，是一个专注于互联网开发技术的团队，现位于教五创客基地。 C.A.T意为 creative & ambitious & team 。在富有创意、充满野心的团队里，丰富的项目资源和良好的学习氛围助你成长为web前端工程师或后端工程师， 自成立以来，工作室一直致力于政府及企业级的大型项目开发。团队和玉兰集团，南方电网等公司建立了长期合作关系。研发过广东省专家匹配系统，C.A.T商城，C.A.T自定义政府模板等众多项目。
+        </view>
+
+
+
+    </view>
+
+
+
+
+
+</view>

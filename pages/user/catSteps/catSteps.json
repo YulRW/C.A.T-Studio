@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "van-steps": "/miniprogram_npm/@vant/weapp/steps/index"
+    },
+    "navigationBarTitleText": "面试进度",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black"
+}

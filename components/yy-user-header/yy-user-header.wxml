@@ -1,0 +1,18 @@
+<!-- 文章头部(用户信息) -->
+<view class="article-header">
+    <!-- 头像 -->
+    <view class="article-avatar">
+        <!-- <open-data type="userAvatarUrl"></open-data> -->
+        <image mode="widthFix" src="{{headerData.avatar}}" class="article-avatar"></image>
+    </view>
+    <!-- 作者信息 -->
+    <view class="article-userInfo">
+        <view>
+            <!-- <open-data type='userNickName'></open-data> -->
+            {{headerData.nickName}}
+        </view>
+        <view class="article-userInfo-sec">{{headerData.selfIntroduction}}</view>
+    </view>
+    <!-- 点点点按钮 -->
+    <view></view>
+</view>

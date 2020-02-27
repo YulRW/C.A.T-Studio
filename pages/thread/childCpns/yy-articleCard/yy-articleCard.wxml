@@ -1,0 +1,33 @@
+<!-- 文章卡片组件 -->
+<view class="article" bindtap="clickArticle">
+
+    <!-- 文章卡片头部+内容主体 -->
+    <view class="article-top">
+        <!-- 文章头部(用户信息) -->
+        <yy-user-header headerData='{{articleData.user}}'></yy-user-header>
+
+        <!-- 文章主体(文章标题+文章简略内容) -->
+        <view class="article-main">
+            <view class="article-main-title">
+                <van-tag custom-class='tag' color="var(--main-2-color)">{{articleData.article.status}}</van-tag>
+                <text class="article-main-title-text">{{articleData.article.title}}</text>
+            </view>
+            <view class="article-main-content">{{articleData.article.content}}</view>
+        </view>
+    </view>
+    <!-- 文章尾部(点赞+讨论+分享按钮) -->
+    <view class="artucle-footer">
+        <view class="artucle-footer-btn" catchtap="agreeArticle">
+            <image src="/assets/images/btn/good.png" class="article-footer-image"></image>
+            <text>{{articleData.article.agreementNum}}</text>
+        </view>
+        <view class="artucle-footer-btn">
+            <image src="/assets/images/btn/chat.png" class="article-footer-image"></image>
+            <text>{{articleData.article.commentNum}}</text>
+        </view>
+        <view class="artucle-footer-btn">
+            <image src="/assets/images/btn/share.png" class="article-footer-image"></image>
+            <text>分享</text>
+        </view>
+    </view>
+</view>

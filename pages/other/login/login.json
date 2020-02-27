@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "yy-footer":"/components/yy-footer/yy-footer"
+  },
+  "navigationBarTitleText": ""
+}

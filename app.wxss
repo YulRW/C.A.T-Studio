@@ -1,0 +1,43 @@
+/**app.wxss**/
+/* @import "colorui/main.wxss";
+@import "colorui/icon.wxss"; */
+
+@import "static/weui.wxss";
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 200rpx 0;
+    box-sizing: border-box;
+}
+
+/* page {
+    font-family: "HYQiHei-55S";
+} */
+
+page {
+    /* 主色 *//* --main-color: #4b60ec; */
+    --main-color: #0f4c81;
+    /* 副色 */
+    --main-2-color: #bdd340;
+    /* 三色 */
+    --main-3-color: #f46f60;
+    /* 四色 */
+    --main-4-color: #f0ece3;
+    /* 五色 */
+    --main-5-color: #3b4141;
+    /* 底色 */
+    --sec-color: #f7f7f7;
+    /* 二级颜色 */
+    --main-gray-color: #808080;
+}
+
+.out-bg {
+    background-color: var(--sec-color, #f7f8fa);
+    min-height: 100vh;
+    border: var(--sec-color, #f7f8fa) 1px solid;
+    box-sizing: border-box;
+}

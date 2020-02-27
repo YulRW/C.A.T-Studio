@@ -1,0 +1,112 @@
+.bg{
+    /* background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%); */
+    background-color: #4b60ec;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.main{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    width: 80vw;
+    height: 75vh;
+    margin: 0 auto;
+    background-color: white;
+
+    border-top-left-radius: 30rpx;
+    border-top-right-radius: 30rpx;
+    
+}
+
+.logo_title{
+    padding-top: 70rpx;
+    text-align: center;
+}
+.logo_title image{
+    width: 400rpx;
+}
+
+.main_in{
+    background-color: white;
+    margin: 45rpx 35rpx 0 35rpx;
+    height: 65vh;
+}
+
+.btn_text{
+    margin: 50rpx 0;
+    font-size: 25rpx;
+    text-align: center;
+    line-height: 2;
+    color: gray;
+}
+
+.btn_text image{
+    padding: 10rpx;
+    width: 60rpx;
+    vertical-align: bottom;
+}
+
+.form{
+    height: 52vh;
+    border-bottom: 2rpx rgb(202, 202, 202) solid;
+    margin-bottom: 15rpx;
+
+}
+input{
+    margin: 10rpx 0 ;
+    font-size: 25rpx;
+}
+
+.sec_title{
+    font-size: 50rpx;
+    color: rgb(44, 44, 44);
+    margin: 30rpx 0;
+    text-align: center;
+}
+
+.input1{
+    border-bottom:4rpx #58c25b solid; 
+}
+
+.input2{
+    border-bottom:4rpx #fd726e solid; 
+}
+
+.input_title{
+    font-size: 20rpx;
+    color: gray;
+    letter-spacing: 15rpx;
+}
+
+.num{
+    margin-bottom: 70rpx;
+}
+
+.tip{
+    font-size: 20rpx;
+    color: #fd726e;
+}
+
+.logo{
+    height: 10vh;
+}
+
+.btn{
+    width: 32vw;
+    height: 5vh;
+    background-color: #4b60ec;
+    color: white;
+    /* letter-spacing: 15rpx; */
+    border-radius: 20rpx;
+    margin: 0 auto;
+    margin-top: 70rpx;
+    text-align: center;
+    line-height: 5vh;
+    box-shadow: 0rpx 10rpx 30rpx -10rpx grey;
+}
+
+.footer{
+}

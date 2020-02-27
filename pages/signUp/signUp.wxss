@@ -1,0 +1,43 @@
+/* pages/signUp/signUp.wxss */
+
+
+.yy-left {
+    text-align: left !important;
+}
+
+.selectAfter {
+    color: black !important;
+}
+
+.title-fir {
+    color: var(--main-color,#4b60ec);
+    font-weight: bolder;
+    text-align: center;
+    font-size: 60rpx;
+    /* margin: 20rpx 0rpx; */
+    padding: 20rpx 0rpx;
+}
+
+.title-sec {
+    padding: 0 16px;
+    text-align: center;
+    font-size: 30rpx;
+    color: grey;
+    margin: 40rpx 0rpx;
+}
+
+
+.signUp{
+    margin: 70rpx 0;
+    background-color: var(--main-color,#4b60ec);
+    color: white;
+}
+
+/* 学院和专业单选器样式 */
+.SM-select-style{
+    color: var(--main-color);
+}
+
+.test{
+    min-height: 20vh;
+}

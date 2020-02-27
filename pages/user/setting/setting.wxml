@@ -1,0 +1,22 @@
+<view class="out-bg">
+
+
+
+
+    <van-cell-group>
+        <van-cell title="邮箱" is-link />
+        <van-cell title="手机号" is-link />
+        <van-cell title="邮箱" is-link />
+        <van-cell title="修改账户密码" is-link />
+    </van-cell-group>
+
+    <van-cell-group title=' '>
+        <van-cell title="关于" is-link link-type="navigateTo" url="/pages/catAbout/catAbout" />
+    </van-cell-group>
+
+    <yy-footer title='C.A.T 1.0.1.a '/>
+
+
+
+
+</view>

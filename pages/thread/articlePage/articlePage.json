@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+      "yy-heart-btn":"./childCpns/yy-heart-btn/yy-heart-btn",
+      "yy-chat-card": "./childCpns/yy-chat-card/yy-chat-card",
+      "yy-user-header": "/components/yy-user-header/yy-user-header"
+      
+  },
+  "navigationBarBackgroundColor":"#ffffff",
+  "navigationBarTextStyle":"black",
+  "navigationBarTitleText":"文章详情"
+
+}

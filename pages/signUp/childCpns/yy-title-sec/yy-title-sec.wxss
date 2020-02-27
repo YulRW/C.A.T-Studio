@@ -1,0 +1,6 @@
+.title-small{
+    padding-left: 16px;
+    color: var(--main-color,#4b60ec);
+    font-size: 30rpx;
+    margin: 60rpx 0 30rpx 0;
+}

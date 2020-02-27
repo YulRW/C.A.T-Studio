@@ -1,0 +1,17 @@
+.article-header{
+    display: flex;
+}
+
+.article-avatar{
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 15rpx;
+    overflow: hidden;
+}
+.article-userInfo{
+    padding-left: 20rpx;
+    font-size: 25rpx;
+}
+.article-userInfo-sec{
+    color: var(--main-gray-color);
+}

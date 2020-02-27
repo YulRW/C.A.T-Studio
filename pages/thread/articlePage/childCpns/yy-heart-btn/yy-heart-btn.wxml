@@ -1,0 +1,6 @@
+<view class="btn" style="width:{{whrpxBtn}}; height:{{whrpxBtn}}" catchtap='addAnimateFun'>
+
+    <view class="heart {{addAnimate}}" style="background-position: {{cssAnimate}} center;width:{{whrpx}} ; height:{{whrpx}};transform: translateX({{whrpxC}}) translateY({{whrpxC}});" >
+    </view>
+
+</view>

@@ -1,0 +1,38 @@
+view{
+}
+
+.bg-image{
+    background-color: rgb(243, 243, 243);
+    width: 100vw;
+    text-align: center;
+    height: 40vh;
+    /* box-shadow: 0rpx 5rpx 20rpx rgb(122, 122, 122); */
+    box-shadow: 0rpx 10px 30px rgb(219, 219, 219);
+    border-bottom-left-radius: 40% 20%;
+    border-bottom-right-radius: 40% 20%;
+}
+
+.bg-image image{
+    margin-top: 10vh;
+    width: 65vw;
+}
+
+.content{
+    margin-top: 100rpx;
+    padding: 30rpx 40rpx;
+    /* background-color: yellowgreen; */
+}
+
+.title{
+    font-size: 50rpx;
+    text-align: center;
+    font-weight: bolder;
+    color: var(--main-color);
+}
+
+.textPlain{
+    font-size: 30rpx;
+    margin-top: 40rpx;
+    text-indent: 2em;
+    color: var(--main-5-color);
+}

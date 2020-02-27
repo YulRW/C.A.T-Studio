@@ -1,0 +1,40 @@
+<!--pages/getInfo/getInfo.wxml-->
+<view class="bg_fir">
+
+    <view class="out">
+
+        <view class="avout">
+            <view class="avatar">
+                <!-- logo -->
+                <image src="/assets/images/logo/logo_square.png" mode="widthFix"></image>
+            </view>
+            <view class="text_sec">GDUT CAT</view>
+        </view>
+
+        <view class="QX_text">
+
+
+            <view class="QX_fir">
+                <view>GDUT CAT 申请获得以下权限
+                </view>
+                <view class="QX_sec">
+                    <view>
+                        <text>·</text> 获取你的公开信息（昵称、头像等） </view>
+
+                    <view>
+                        <text>·</text> 获取你的微信绑定的手机号
+                    </view>
+
+                </view>
+            </view>
+        </view>
+
+        <view>
+            <button class="{{flag?'hide':'show'}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">确认授权</button>
+
+            <button class="{{flag?'show':'hide'}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
+
+        </view>
+        <!-- <view wx:else class="elseTip">请升级微信版本</view> -->
+    </view>
+</view>

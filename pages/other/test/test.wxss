@@ -1,0 +1,79 @@
+/* pages/test/test.wxss */
+
+input {
+    border: 2px black solid;
+    margin: 10px;
+    padding: 10px;
+}
+
+image {
+    width: 100px;
+    height: 30px;
+    border: 1px black solid;
+}
+
+/* 测试 */
+
+.test1{
+    position: relative;
+}
+
+.test1 input{
+    border:  1px black solid;
+    /* position: relative; */
+}
+
+.test1 view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 300px;
+    background-color: red;
+    opacity: .5;
+    z-index: 100;
+    pointer-events: none;
+}
+
+
+
+/* 按钮波纹 */
+
+.ripple {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    /* 隐藏溢出的径向渐变背景 */
+    /* overflow: hidden; */
+    border: red 1px solid;
+}
+
+.ripple:active {
+    background-color:  rgb(173, 173, 173) ;
+    opacity: .3;
+    transition: 0s;
+}
+.ripple:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    /* 设置径向渐变 */
+    background-image: radial-gradient(circle, #666 10%, transparent 10%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .3s, opacity .5s;
+}
+.ripple:active:after {
+    transform: scale(0, 0);
+    opacity: .3;
+    /* 设置初始状态 */
+    transition: 0s;
+}
+

@@ -1,0 +1,22 @@
+<van-tabs active="{{ tabsPage }}" bind:change="handlePageChange" sticky animated duration='0.2' swipeable="{{true}}" color="var(--main-color)">
+
+    <!-- 遍历所有文章类别导航栏 -->
+    <block wx:for-item='type' wx:for-index='type-index' wx:for="{{articleDataO}}" wx:key='name'>
+        <van-tab title="{{type.name}}">
+
+            <view class="out-bg">
+
+                <!-- 二级遍历:遍历导航栏中的文章 -->
+                <block  wx:for='{{type.list}}' wx:key='index'>
+                    <yy-articleCard articleData='{{item}}' bind:clickArticle='clickArticle' data-index='{{index}}' data-id='{{item.article.id}}'/>
+                </block>
+
+            </view>
+
+        </van-tab>
+    </block>
+
+
+
+
+</van-tabs>

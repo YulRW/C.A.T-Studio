@@ -1,0 +1,77 @@
+<view>
+    <!-- 用户头部 -->
+    <view class="article-header">
+        <yy-user-header headerData='{{articleData.user}}'></yy-user-header>
+    </view>
+
+
+    <!-- 文章主体 -->
+    <view class="article-main">
+        <!-- 文章标题 -->
+        <view class="articleTitle">
+            {{articleData.article.title}}
+        </view>
+        <!-- 文章主体 -->
+        <view>
+            {{articleData.article.content}}
+        </view>
+
+        <view class="article-other">阅读 7 · 赞 {{articleData.article.agreementNum}}</view>
+    </view>
+
+
+    <!-- 评论块 -->
+    <view class="chatHub ">
+
+            <block wx:if="{{chatInfo.length!=0}}">
+
+                <yy-chat-card chatInfo='{{item}}' wx:for='{{chatInfo}}' wx:key='{{index}}' />
+
+            </block>
+
+
+            <block wx:else>
+
+                <view class="chatNothing" >暂无评论</view>
+
+            </block>
+
+    </view>
+
+
+    <!-- 底部栏 -->
+    <view class="article-footer" style=" bottom : {{inputBottom}};">
+
+        <!-- 点击前的底部栏 -->
+        <block wx:if='{{inputShow}}'>
+            <view class="article-footer-input" bindtap="clickInput">
+                <view> ❤❤❤腿姐</view>
+
+            </view>
+            <view catchtap="agreeArticle">
+                <image src='/assets/images/btn/good.png' mode="widthFix" class="article-footer-btn"></image>
+            </view>
+            <view class="article-footer-btn">
+                <yy-heart-btn widAndHei='150rpx'></yy-heart-btn>
+            </view>
+            <view>
+                <image src="/assets/images/btn/chat.png" mode="widthFix" class="article-footer-btn"></image>
+            </view>
+        </block>
+        <!-- 点击后的底部栏 -->
+        <block wx:else>
+            <view></view>
+            <view></view>
+            <view class="article-footer-inputFocus">
+
+                <input focus='{{true}}' bindfocus="inputFocus" adjust-position="{{false}}" placeholder="添加评论..." bindblur='inputBlur' bindinput="handleChatInput"></input>
+
+            </view>
+            <view>
+                <image src="/assets/images/btn/send.png" mode="widthFix" class="article-footer-send" bindtap="sendChat"></image>
+            </view>
+
+        </block>
+    </view>
+
+</view>

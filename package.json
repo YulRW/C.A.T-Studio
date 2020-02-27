@@ -1,0 +1,15 @@
+{
+  "name": "yy",
+  "version": "1.0.0",
+  "description": "myNPM",
+  "main": "app.js",
+  "dependencies": {
+    "@vant/weapp": "^1.0.0-beta.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yy",
+  "license": "ISC"
+}

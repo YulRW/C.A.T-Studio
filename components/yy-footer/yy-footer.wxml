@@ -1,0 +1,4 @@
+<view class="weui-footer">
+    <!-- Copyright © 2008-2016 weui.io -->
+    <view class="weui-footer__text">{{title}}</view>
+</view>

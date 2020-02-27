@@ -1,0 +1,40 @@
+<input type="text" placeholder="学号" bindinput="handleNum"></input>
+<input type="password" placeholder="密码" bindinput="handlePwd"></input>
+<input type="text" placeholder="验证码" bindinput="handleCaptcha"></input>
+<image bindtap="getcaptchaImg" src="data:image/png;base64,{{imgUrl}}"></image>
+<button size="big" bindtap="login">登录</button>
+
+<div class="container text-center">
+        <button class="btn btn-default ripple btn-lg">Button</button>
+
+        <view class="btn btn-default ripple btn-lg">Button</view>
+        <!-- <button class="btn btn-default ripple btn-lg">Button with very long content</button> -->
+</div>
+
+<view class="test1">
+
+<input></input>
+<view></view>
+</view>
+
+
+
+
+
+<van-tabs active="{{ tabsPage }}" bind:change="handlePageChange" sticky animated duration='0.2' swipeable="{{true}}" color="var(--main-color)">
+
+    <!-- 遍历所有文章类别导航栏 -->
+    <!-- <block wx:for-item='type' wx:for-index='type-index' wx:for="{{articleDataO}}" wx:key='{{type-index}}'>
+        <van-tab title="{{type.name}}">
+
+        </van-tab>
+    </block> -->
+
+    <block wx:for="{{test}}" wx:key='{{index}}'>
+        <van-tab title="{{item}}">
+
+        </van-tab>
+    </block>
+
+
+</van-tabs>
