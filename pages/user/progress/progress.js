@@ -41,13 +41,29 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        let status;
-        if (app.globalData.status.userData) {
-            status = app.globalData.userData.status;
+        /**
+         * 流程：进入页面后
+         * 1. 是否有status更新？有-》请求最新status，并把更新状态去除
+         * 2. 全局中app是否有面试Data？有-》写入
+         * 3. 是否登录了？有-》请求面试数据，写入
+         * 4. 没有登录，等待回调，写入
+         */
+
+
+        if (app.globalData.status.progressChange) {
+            this.getNotice(1);
+            app.globalData.status.progressChange = false;
+        } else if (app.globalData.progressData) {
+            this.setData({
+                notice: app.globalData.progressData
+            })
+            console.log(app.globalData.progressData)
+        } else if (app.globalData.status.userData) {
+            let status = app.globalData.userData.status;
             this.getNotice(status);
         } else {
             app.loginCallback = data => {
-                status = data.status;
+                let status = data.status;
                 this.getNotice(status);
             }
         }
@@ -61,7 +77,7 @@ Page({
                 method: 'POST',
             })
             .then(res => {
-                console.log(res.data.data)
+                app.globalData.progressData = res.data.data
                 this.setData({
                     notice: res.data.data
                 })
@@ -71,10 +87,9 @@ Page({
                 })
             })
     },
-    onShow(){
-        if(app.globalData.status.progressChange){
-            this.getNotice(1);
-            app.globalData.status.progressChange = false;
-        }
+    onShow() {
+
+
+
     }
 })

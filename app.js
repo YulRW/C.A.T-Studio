@@ -71,6 +71,7 @@ App({
         userInfo: null,
         signUpInfo: null,
         userData: null,
+        progressData:null,
         ip: {
             //康俊彬IP
             kjb: 'https://hzbzzz.top'
