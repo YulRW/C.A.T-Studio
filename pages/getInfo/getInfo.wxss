@@ -83,6 +83,11 @@
     background-color: var(--main-color);
 }
 
+.cancel{
+    color: black;
+    background-color: #f2f2f2;
+}
+
 .hide::after {
     border: 0;
 }

@@ -32,7 +32,8 @@
         <view>
             <button class="{{flag?'hide':'show'}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">确认授权</button>
 
-            <button class="{{flag?'show':'hide'}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
+            <!-- <button class="{{flag?'show':'hide'}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button> -->
+            <button class="show cancel" bindtap="backPage">取消</button>
 
         </view>
         <!-- <view wx:else class="elseTip">请升级微信版本</view> -->

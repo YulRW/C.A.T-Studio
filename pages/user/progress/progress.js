@@ -46,7 +46,7 @@ Page({
             status = app.globalData.userData.status;
             this.getNotice(status);
         } else {
-            app.getInfoReadyCallback = data => {
+            app.loginCallback = data => {
                 status = data.status;
                 this.getNotice(status);
             }

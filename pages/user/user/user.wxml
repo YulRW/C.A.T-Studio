@@ -2,11 +2,28 @@
 
 <!-- 个人选项卡 -->
 <view class="mt">
+
     <van-cell-group>
-        <van-cell title="面试进度" is-link link-type="navigateTo" url="/pages/user/progress/progress">
-        </van-cell>
-        <!-- <van-cell title="我的文章" is-link /> -->
-        <!-- <van-cell title="我的收藏" is-link /> -->
+        <block wx:if='{{netRequest}}'>
+            <block wx:if='{{isLogin}}'>
+                <van-cell title="考核进度" is-link link-type="navigateTo" url="/pages/user/progress/progress">
+                </van-cell>
+
+            </block>
+            <!-- <van-cell title="我的文章" is-link /> -->
+            <!-- <van-cell title="我的收藏" is-link /> -->
+            <block wx:else>
+                <button catchtap="toLogin" class="loginBtn">一键登录</button>
+
+            </block>
+
+
+        </block>
+        <block wx:else>
+            <view class="center">
+                <image src="https://image.weilanwl.com/gif/loading-1.gif" mode="widthFix" class="loading"></image>
+            </view>
+        </block>
     </van-cell-group>
 
     <!-- <van-cell-group title=' '>

@@ -1,16 +1,9 @@
 //app.js
 const yy = require('./utils/Promise.js');
 
-//引入加密解密文件
-// const CryptoJS = require('./utils/encrypt.js');
-
-
 App({
     appData: {
         code: ''
-    },
-    Console(title,val){
-        console.log(`%c ${title} `, "border:1px solid #e1e1e8; color:#07c160;font-weight: bolder;font-size:25px;", val);
     },
     onLaunch: function() {
         //登录
@@ -18,14 +11,17 @@ App({
                 withSubscriptions: true
             })
             .then(res => {
-                this.Console('授权状态',res);
+                this.Console('授权状态', res)
                 if (res.authSetting['scope.userInfo']) { //如果请求过了 "userInfo"
                     // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
                     return yy.login({});
                 } else {
-                    yy.reLaunch({
-                        url: '/pages/getInfo/getInfo',
-                    })
+                    this.globalData.status.netRequest = true;
+                    if (this.loginCallback) {
+                        res.loginStatus = false;
+                        this.loginCallback(res);
+                    }
+
                     throw 'not login';
                 }
             })
@@ -37,7 +33,6 @@ App({
             })
 
             .then(res => {
-                this.Console('登录授权', res);
                 this.globalData.userInfo = res.userInfo;
 
                 // 可以将 encryptedData、iv、code 发送给后台解码出 unionId
@@ -51,25 +46,26 @@ App({
                     }
                 })
             })
-            .then(res => {  //得到登录请求响应
-                this.Console('登录数据', res);
-                if (res.data.code === 200) {    // code 200 ->登录成功
-                    this.globalData.status.userData = true;
-                    if (this.getInfoReadyCallback) {
-                        this.getInfoReadyCallback(res.data.data);
+            .then(res => { //得到登录请求响应
+                if (res.data.code === 200) { // code 200 ->登录成功
+                    this.globalData.status.netRequest = true;
+                    if (this.loginCallback) {
+                        res.data.data.loginStatus = true;
+                        this.loginCallback(res.data.data);
                     }
                     this.globalData.userData = res.data.data;
-                    // yy.showToast({
-                    //     title: '登陆成功',
-                    // })
-                }else{
-                    throw 'err'
+                    this.globalData.status.userData = true;
+                } else {
+                    throw 'login err'
                 }
             })
-            .catch(res=>{
-
+            .catch(res => {
+                this.Console('错误',res);
             })
 
+    },
+    Console(name, val) {
+        console.log(`%c ${name} `, "border:1px solid #e1e1e8; color:#07c160;font-weight: bolder;font-size:25px;", val);
     },
     globalData: {
         userInfo: null,
@@ -87,12 +83,13 @@ App({
             commentArticle: '/article/comment',
             agree: '/article/agree',
             login: '/user/login',
-            progressRes:'/user/getInterviewSchedule'
+            progressRes: '/user/getInterviewSchedule'
         },
         errorMsg: {},
         status: {
             userData: false,
-            progressChange:false
+            netRequest: false,
+            progressChange: false
         }
     }
 })

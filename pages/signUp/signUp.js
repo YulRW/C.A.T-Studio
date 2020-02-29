@@ -315,8 +315,8 @@ Page({
             direction: Number(info.direction),
             selfIntroduction: info.introduce,
             gpa: Number(info.gpa), // 绩点选填
-            openId:g.userData.openId,
-            userId:g.userData.id
+            openId: g.userData.openId,
+            userId: g.userData.id
         }
 
         //获取发送IP地址
@@ -347,7 +347,7 @@ Page({
 
                 //禁止再次报名
                 this.setData({
-                    disabled:true
+                    disabled: true
                 })
                 app.globalData.status.progressChange = true;
 
@@ -355,7 +355,7 @@ Page({
                     return yy.requestSubscribeMessage({
                         tmplIds: ['MSZh8bVBbQbTNgr8sJGXh3WQiX57E7tvRBg_sATsJBY', 'gbSdXrEZ6f1QVcTAQIwBEhcOMr8EdvMKfAAZ8Xal4mY']
                     })
-                }else{
+                } else {
                     throw 'err'
                 }
             })
@@ -364,7 +364,7 @@ Page({
                     // return yy.showToast({
                     //     title: '消息订阅成功',
                     // })
-                }else{
+                } else {
                     throw 'err'
                 }
             })
@@ -441,21 +441,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        if (app.globalData.status.userData) {
-            if (app.globalData.userData.status > 0) {
-                this.setData({
-                    disabled: true
-                })
-            }
-        } else {
-            app.getInfoReadyCallback = data => {
-                if (data.status > 0) {
-                    this.setData({
-                        disabled: true
-                    })
-                }
-            }
-        }
+
 
         // wx.setNavigationBarColor({
         //     frontColor: '#ffffff',
@@ -471,7 +457,49 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
+        if (!app.globalData.status.userData) {
+            yy.showModal({
+                    title: '温馨提示',
+                    content: '抱歉，要使用报名功能请先进行登录授权，只需一步即可',
+                    confirmText: "一键登录",
+                    confirmColor: "#0f4c81"
+                })
+                .then(res => {
+                    if (res.confirm) {
+                        wx.navigateTo({
+                            url: '/pages/getInfo/getInfo'
+                        })
+                        throw 'err';
+                    } else if (res.cancel) {
+                        wx.switchTab({
+                            url: '/pages/user/user/user',
+                        })
+                        throw 'err';
+                    }
+                })
+                .catch(res => {
 
+                })
+
+
+        } else {
+
+            if (app.globalData.userData.status > 0) {
+                this.setData({
+                    disabled: true
+                })
+            }
+        }
+
+        // if (app.globalData.status.userData) {} else {
+        //     app.loginCallback = data => {
+        //         if (data.status > 0) {
+        //             this.setData({
+        //                 disabled: true
+        //             })
+        //         }
+        //     }
+        // }
     },
 
     /**

@@ -1,11 +1,17 @@
 // pages/user/user.js
+const app = getApp();
 Page({
-
+    toLogin() {
+        wx.navigateTo({
+            url: '/pages/getInfo/getInfo',
+        })
+    },
     /**
      * 页面的初始数据
      */
     data: {
-
+        isLogin: false,
+        netRequest:false
     },
 
     /**
@@ -14,21 +20,24 @@ Page({
     onLoad: function(options) {
         // this.wave = this.selectComponent("#yy-wave");
         // this.wave.__hideInfo()
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function() {
-
-
+        app.loginCallback = res => {
+            this.setData({
+                netRequest:true,
+                isLogin:res.loginStatus
+            })
+        }
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-
+        if (app.globalData.status.netRequest) {
+            this.setData({
+                netRequest: true,
+                isLogin: app.globalData.status.userData
+            })
+        }
     },
 
     /**

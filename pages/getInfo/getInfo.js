@@ -33,11 +33,17 @@ Page({
                 })
             })
 
-            .then(res => {
-                app.globalData.userData = res.data.data
+            .then(res => {  //登录成功！返回信息
+                app.globalData.userData = res.data.data;
+                app.globalData.status.userData = true;
                 yy.switchTab({
-                    url: '/pages/signUp/signUp',
+                    url: '/pages/user/user/user',
                 });
             })
+    },
+    backPage(){
+        yy.switchTab({
+            url: '/pages/user/user/user',
+        });
     },
 })

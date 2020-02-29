@@ -61,9 +61,9 @@
 
 
     <!-- 自我介绍 -->
-    <van-field value="{{textareaPH}}" label="自我介绍" type="textarea" placeholder="请输入自我介绍...(30-300字之间...)" autosize border="{{ true }}"  placeholder-style="{{placeholderColor}}" bind:change="headleIntroduce" input-class="test" error-message="{{errorMessage.introduce}}" maxlength='300'/>
+    <van-field value="{{textareaPH}}" label="自我介绍（性格、爱好、学习进度、项目经验等）" type="textarea" placeholder="请输入30-300字之间的自我介绍" autosize border="{{ true }}"  placeholder-style="{{placeholderColor}}" bind:change="headleIntroduce" error-message="{{errorMessage.introduce}}" maxlength='300' class='textarea-class'/>
 
     <button class="signUp" bindtap="signUpBtn" disabled='{{disabled}}'>报名</button>
-
+    <text wx:if='{{disabled}}' class="sign-up-tip">你已经报名过，如有异常或需要更改的请联系师兄师姐，谢谢!</text>
 
 </view>

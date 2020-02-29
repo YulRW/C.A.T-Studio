@@ -38,6 +38,15 @@
     color: var(--main-color);
 }
 
-.test{
-    min-height: 20vh;
+.sign-up-tip{
+    font-size: 25rpx;
+    display: block;
+    text-align: center;
+    margin: 20rpx 0;
+    color: var(--main-2-color);
+}
+
+
+.textarea-class{
+    min-height: 300rpx;
 }
