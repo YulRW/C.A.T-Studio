@@ -9,7 +9,11 @@ Page({
         })
     },
     getNextNotice() {
-        var array = ['UkKVRb8O6V3cybQnQXG2gqm-1hijIzv_l6_R0axMG80', 'gbSdXrEZ6f1QVcTAQIwBEhcOMr8EdvMKfAAZ8Xal4mY', 'MSZh8bVBbQbTNgr8sJGXh3WQiX57E7tvRBg_sATsJBY']
+
+        var array = [ 'gbSdXrEZ6f1QVcTAQIwBEhcOMr8EdvMKfAAZ8Xal4mY', 'MSZh8bVBbQbTNgr8sJGXh3WQiX57E7tvRBg_sATsJBY']
+        if (this.data.notice.status == 6 || this.data.notice.status == 7){
+            array = ['MSZh8bVBbQbTNgr8sJGXh3WQiX57E7tvRBg_sATsJBY']
+        }
         wx.requestSubscribeMessage({
             tmplIds: array,
             success: res => {
@@ -51,17 +55,22 @@ Page({
 
 
         if (app.globalData.status.progressChange) {
+            console.log(1)
             this.getNotice(1);
             app.globalData.status.progressChange = false;
         } else if (app.globalData.progressData) {
+            console.log(2)
             this.setData({
-                notice: app.globalData.progressData
+                notice: app.globalData.progressData,
+                isLoading:false
             })
             console.log(app.globalData.progressData)
         } else if (app.globalData.status.userData) {
+            console.log(3)
             let status = app.globalData.userData.status;
             this.getNotice(status);
         } else {
+            console.log(4)
             app.loginCallback = data => {
                 let status = data.status;
                 this.getNotice(status);
