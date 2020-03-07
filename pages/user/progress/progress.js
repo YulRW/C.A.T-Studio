@@ -11,7 +11,7 @@ Page({
     getNextNotice() {
 
         var array = [ 'gbSdXrEZ6f1QVcTAQIwBEhcOMr8EdvMKfAAZ8Xal4mY', 'MSZh8bVBbQbTNgr8sJGXh3WQiX57E7tvRBg_sATsJBY']
-        if (this.data.notice.status == 6 || this.data.notice.status == 7){
+        if (this.data.notice.status == 5 || this.data.notice.status == 6){
             array = ['MSZh8bVBbQbTNgr8sJGXh3WQiX57E7tvRBg_sATsJBY']
         }
         wx.requestSubscribeMessage({

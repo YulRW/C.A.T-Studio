@@ -4,16 +4,103 @@
     </view>
 
     <view class="content">
+
+
+
         <view class="title">C.A.T工作室简介</view>
-        <view class="textPlain"> C.A.T 工作室成立于2017年，是一个专注于互联网开发技术的团队，现位于教五创客基地。 C.A.T意为 creative & ambitious & team 。在富有创意、充满野心的团队里，丰富的项目资源和良好的学习氛围助你成长为web前端工程师或后端工程师， 自成立以来，工作室一直致力于政府及企业级的大型项目开发。团队和玉兰集团，南方电网等公司建立了长期合作关系。研发过广东省专家匹配系统，C.A.T商城，C.A.T自定义政府模板等众多项目。
+        <view class="textPlain pad-l-r-40"> C.A.T工作室分为前端和后台两个小组，致力于政府及企业级的大型项目开发，团队与玉兰集团、南方电网等公司建立了长期合作关系，近年来研发过广东省专家匹配系统、智能塑料回收瓶机（与羊城通合作），同时组队参与App、小程序大赛并获得奖项，已有毕业师兄就职于一线互联网大厂。
+        </view>
+
+        <view class="card">
+            <view class="card-title front-icon iconfont"> 前端</view>
+            <view class="card-text">前端即网站前台部分，运行在PC端，移动端等浏览器上展现给用户浏览的网页。随着互联网技术的发展，HTML5，CSS3，前端框架的应用，跨平台响应式网页设计能够适应各种屏幕分辨率，完美的动效设计，给用户带来极高的用户体验。
+            </view>
+        </view>
+
+        <view class="pad-l-r-40 mar-t-b-30">
+            <view class="iconfont html-icon"></view>
+            <view class="item-title">HTML</view>
+            <view class="item-text">
+                <view>组成网页的骨架</view>
+                <view>使用标记标签来描述网页</view>
+                <view>标签里可带有各类属性，可以用来关联CSS和JS</view>
+            </view>
+        </view>
+
+        <view class="pad-l-r-40 mar-t-b-30">
+            <view class="iconfont css-icon"></view>
+            <view class="item-title">CSS</view>
+            <view class="item-text">
+                <view>修饰网页的内容</view>
+                <view>使页面展现地更加友好，结构更加灵活</view>
+                <view>极大地提高了工作效率</view>
+            </view>
+        </view>
+
+        <view class="pad-l-r-40 mar-t-b-30">
+            <view class="iconfont js-icon"></view>
+            <view class="item-title">JavaScript</view>
+            <view class="item-text">
+                <view>充当网页的交互</view>
+                <view>响应用户操作，增加互动性</view>
+                <view>连接HTML和后台服务器的桥梁，它是操纵HTML的能手</view>
+            </view>
+        </view>
+
+        <view class="textPlain pad-l-r-40">前端负责界面实现以及业务逻辑实现，以优化用户体验为核心目的。UI是Creator，前段是Builder，通过浏览器访问的网站、某些APP、小程序、电脑上的部分桌面应用都是前端根据UI设计图，通过代码来还原实现。HTML决定网页有哪些内容和板块，CSS决定网页中内容的样式，JS用来控制网页的功能、与用户交互息息相关。
+        </view>
+
+        <view class="card">
+            <view class="card-title back-icon iconfont"> 后台</view>
+            <view class="card-text">后台开发，通常也称服务器端开发。顾名思义开发的是程序的后端，并不对用户显示，类似于后勤的样子，负责处理前端的请求，进行逻辑处理和数据交互，例如企信打卡，本地提交打卡信息，后端进行逻辑判断，是否在规定时间、规定地点，若符合则将打卡信息存储在数据库。
+            </view>
+        </view>
+
+
+        <view class="textPlain pad-l-r-40">后台开发，通常也称服务器端开发。主要负责业务逻辑功能模块，工作中处理前端的请求，进行逻辑处理和数据交互，现阶段的Web端、移动端等都需要后台技术的支持。C.A.T工作室后台组基于Java语言开发，如果你具备基本的C语言基础，对Java编程感兴趣，有出色的学习能力以及良好的团队协作能力，那么后台组绝对是你的不二选择。</view>
+
+        <view class="card">
+            <view class="card-title back-icon iconfont"> 项目展示</view>
+        </view>
+
+
+        <view class="project mar-t-b-30 pad-l-r-40">
+            <view class="project-title">国家海洋局南海分局北斗航标系统</view>
+            <view class="project-text pad-t-b-20">该航标系统主要用于将北斗卫星传来的航标数据标注在地图上，并显示航标所在海域的水文情况。</view>
+        </view>
+
+
+        <view class="project mar-t-b-30 pad-l-r-40">
+            <view class="project-title">广州市供电局运营分析平台</view>
+            <view class="project-text pad-t-b-20">该平台主要用于管理广州市各地用电、电路维护、人员分配等的多项数据。对数据进行清洗和分析，实现数据可视化管理，解决了人工处理大量数据时的无法预测的错误、降低了人力资本，提高了数据处理速率和准确性。</view>
+        </view>
+
+        <view class="project mar-t-b-30 pad-l-r-40">
+            <view class="project-title">广东玉兰集团有限公司的B2B订单系统</view>
+            <view class="project-text pad-t-b-20">该系统是一个B2B订单购物一体化平台，协助玉兰集团搭建线上销售平台，解决传统销售过程痛点，项目已成功上线。</view>
+        </view>
+
+        <view class="project mar-t-b-30 pad-l-r-40">
+            <view class="project-title">“友捎”带货app</view>
+            <view class="project-text pad-t-b-20">以网络技术结合村民需要，为村民打造一站式捎货服务平台，提供省心、安全、便捷的捎货体验，致力于乡村服务建议。</view>
+        </view>
+
+        <view class="project mar-t-b-30 pad-l-r-40">
+            <view class="project-title">小鱿鱼智能塑料瓶回收箱</view>
+            <view class="project-text pad-t-b-20">该项目已与广州羊城公司达成合作，使用了人脸识别、图片识别、红外感应等技术，致力于构建美丽智慧城市。</view>
+        </view>
+
+
+
+        <view class="weui-footer">
+            <view class="weui-footer__links">
+                <navigator url="/pages/signUp/signUp" open-type='switchTab' class="weui-footer__link">立即报名</navigator>
+            </view>
+            <view class="weui-footer__text">Copyright © 2019-2020 C.A.T Studio</view>
         </view>
 
 
 
     </view>
-
-
-
-
 
 </view>

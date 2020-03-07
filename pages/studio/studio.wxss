@@ -1,7 +1,25 @@
-view{
+/* 快捷样式 */
+.pad-l-r-40 {
+    padding: 0rpx 40rpx;
 }
 
-.bg-image{
+.pad-l-r-20 {
+    padding: 0rpx 20rpx;
+}
+
+.pad-t-b-20 {
+    padding: 20rpx 0rpx;
+}
+
+
+.mar-t-b-30{
+    margin: 30rpx 0;
+}
+
+
+/* 顶部图片LOGO */
+
+.bg-image {
     background-color: rgb(243, 243, 243);
     width: 100vw;
     text-align: center;
@@ -12,27 +30,107 @@ view{
     border-bottom-right-radius: 40% 20%;
 }
 
-.bg-image image{
-    margin-top: 10vh;
+.bg-image image {
+    margin-top: 12vh;
     width: 65vw;
 }
 
-.content{
+/* 内容部分 */
+
+.content {
     margin-top: 100rpx;
-    padding: 30rpx 40rpx;
-    /* background-color: yellowgreen; */
 }
 
-.title{
+.title {
     font-size: 50rpx;
     text-align: center;
     font-weight: bolder;
     color: var(--main-color);
 }
 
-.textPlain{
+.textPlain {
     font-size: 30rpx;
     margin-top: 40rpx;
+    margin-bottom: 40rpx;
     text-indent: 2em;
     color: var(--main-5-color);
+}
+
+
+/* card部分 */
+
+.card{
+    background-color: #f2f2f2;
+}
+
+.card-title{
+    font-weight: bolder;
+    font-size: 70rpx;
+    padding: 70rpx 50rpx;
+}
+
+
+.card-text{
+    color: #8d8d8d;
+    font-weight: bolder;
+    font-size: 30rpx;
+    padding: 0rpx 50rpx 60rpx 50rpx;
+}
+
+/* icon */
+
+.front-icon::before{
+    content: "\e68c";
+    color: var(--main-color);
+}
+
+.back-icon::before{
+    content: "\e653";
+    color: var(--main-color);
+}
+
+.html-icon::before{
+    content: "\e608";
+    font-size: 60rpx;
+    color: #e44d26;
+}
+
+.css-icon::before{
+    color: #2196f3;
+    content: "\e654";
+    font-size: 60rpx;
+}
+
+.js-icon::before{
+    color: #ffca28;
+    font-size: 60rpx;
+    content: "\e636";
+}
+
+/* item样式 */
+
+.item-title{
+    font-size: 40rpx;
+    font-weight: bolder;
+}
+
+.item-text{
+    color: #888888;
+    font-size: 30rpx;
+}
+
+
+
+/* project样式 */
+.project-title{
+    border-left: 20rpx var(--main-2-color) solid;
+    font-size: 35rpx;
+    font-weight: bolder;
+    text-indent: 1em;
+}
+
+.project-text{
+    font-size: 30rpx;
+    /* color: var(--main-color); */
+    color: black;
 }

@@ -389,9 +389,12 @@ Page({
         let i;
         var isNull = false;
 
+
         for (i in obj) {
             console.log(i, ':', obj[i])
-            if (this.isnull(obj[i]) || obj[i] === '请选择') {
+            if (i == 'gpa') {
+
+            } else if (this.isnull(obj[i]) || obj[i] === '请选择') {
                 isNull = true;
             }
         }
