@@ -1,0 +1,331 @@
+<div class="out color" style="--bgd-color:{{color.bgdcolor}};--light:{{color.light}};--medium:{{color.medium}};--dark:{{color.dark}};--bush:{{color.bush}};--trunk:{{color.trunk}};--trunk2:{{color.trunk2}};--cloud:{{color.cloud}};--sun:{{color.sun}};--rabbit:{{color.rabbit}}"
+    bindtap='click' bindtouchstart='touchStart' bindtouchend="touchEnd">
+    <!-- 内容 -->
+    <div class="container-self">
+        <!-- 季节 -->
+        <div class="season"></div>
+        <!-- 太阳 -->
+        <div class="sun"></div>
+        <!-- 彩虹 -->
+        <div class="rainbow {{display.rainbow === true ? 'animated' : ' '}}">
+            <!-- 7道颜色 -->
+            <block wx:for='{{7}}' wx:key='*this'>
+                <div class="rainbow-colour"></div>
+            </block>
+        </div>
+        <!-- 云组 -->
+        <div class="cloud-group">
+            <!-- 云1,2,3,4,5,6,7,8 -->
+            <block wx:for='{{8}}' wx:key='*this'>
+                <div class="cloud">
+                    <div class="weather-container">
+                        <block wx:for='{{20}}' wx:key='*this'>
+                            <div class="snow" style="display: {{display.snow}};"></div>
+                        </block>
+                        <block wx:for='{{30}}' wx:key='*this'>
+                            <div class="rain" style="display: {{display.rain}};"></div>
+                        </block>
+                    </div>
+                </div>
+            </block>
+        </div>
+        <!-- 地面地基 -->
+        <div class="base">
+            <!-- 草丛 -->
+            <div class="bush-group">
+                <block wx:for='{{9}}' wx:key='*this'>
+                    <div class="bush"></div>
+                </block>
+            </div>
+            <!-- 兔子 -->
+            <div class="rabbit {{display.rabbit === true ? 'animated' : ' '}}">
+                <div class="head">
+                    <div class="ear"></div>
+                    <div class="ear"></div>
+                </div>
+            </div>
+            <!-- 树组 -->
+            <div class="tree-group">
+                <!-- 树1 -->
+                <div class="tree">
+                    <div class="trunk"></div>
+                    <div class="tree-top"></div>
+                </div>
+                <!-- 树2 -->
+                <div class="tree">
+                    <div class="trunk"></div>
+                    <div class="tree-top"></div>
+                </div>
+                <!-- 树3 -->
+                <div class="tree">
+                    <div class="trunk"></div>
+                    <div class="tree-top"></div>
+                </div>
+                <!-- 树4 -->
+                <div class="tree">
+                    <div class="trunk"></div>
+                    <block wx:for='{{12}}' wx:key='*this'>
+                        <div class="branch"></div>
+                    </block>
+                </div>
+                <!-- 树5 -->
+                <div class="tree">
+                    <div class="trunk"></div>
+                    <div class="tree-top"></div>
+                    <div class="tree-top"></div>
+                    <div class="branch-two">
+                        <div class="tree-top"></div>
+                    </div>
+                    <div class="branch-two">
+                        <div class="tree-top"></div>
+                    </div>
+                    <div class="branch-two">
+                        <div class="tree-top"></div>
+                    </div>
+                </div>
+                <!-- 树6 -->
+                <div class="tree">
+                    <div class="trunk"></div>
+                    <div class="tree-top"></div>
+                </div>
+                <!-- 树7 -->
+                <div class="tree">
+                    <div class="trunk"></div>
+                    <div class="tree-top"></div>
+                </div>
+                <!-- 树8 -->
+                <div class="tree">
+                    <div class="trunk"></div>
+                    <div class="tree-top">
+                        <block wx:for='{{20}}' wx:key='*this'>
+                            <div class="cone"></div>
+                        </block>
+                    </div>
+                    <div class="tree-top"></div>
+                    <div class="tree-top"></div>
+                    <div class="flower {{display.flower === true ? 'animated' : ' '}}">
+                        <div class="flower-in"></div>
+                        <div class="petal"></div>
+                        <div class="petal"></div>
+                        <div class="petal"></div>
+                    </div>
+                    <div class="flower {{display.flower === true ? 'animated' : ' '}}">
+                        <div class="flower-in"></div>
+                        <div class="petal"></div>
+                        <div class="petal"></div>
+                        <div class="petal"></div>
+                    </div>
+                </div>
+                <!-- 树9 -->
+                <div class="tree">
+                    <div class="trunk"></div>
+                    <div class="tree-top"> </div>
+                </div>
+                <!-- 树10 -->
+                <div class="tree">
+                    <div class="trunk"></div>
+                    <block wx:for='{{10}}' wx:key='*this'>
+                        <div class="branch">
+                            <div class="branch-in"></div>
+                            <div class="pine-cone-row">
+                                <div class="pine-cone"></div>
+                                <div class="pine-cone"></div>
+                                <div class="pine-cone"></div>
+                                <div class="pine-cone"></div>
+                                <div class="pine-cone"></div>
+                                <div class="pine-cone"></div>
+                                <div class="pine-cone"></div>
+                            </div>
+                        </div>
+                    </block>
+                </div>
+                <!-- 树11 -->
+                <div class="tree">
+                    <div class="trunk"></div>
+                    <div class="tree-top"></div>
+                    <div class="tree-top"></div>
+                    <div class="tree-top"></div>
+                </div>
+                <!-- 树12 -->
+                <div class="tree">
+                    <div class="trunk"> </div>
+                    <div class="tree-top">
+                        <block wx:for='{{20}}' wx:key='*this'>
+                            <div class="cone"> </div>
+                        </block>
+                    </div>
+                    <div class="tree-top"></div>
+                    <div class="tree-top"></div>
+                    <div class="flower {{display.flower === true ? 'animated' : ' '}}">
+                        <div class="flower-in"></div>
+                        <div class="petal"></div>
+                        <div class="petal"></div>
+                        <div class="petal"></div>
+                    </div>
+                    <div class="flower {{display.flower === true ? 'animated' : ' '}}">
+                        <div class="flower-in"></div>
+                        <div class="petal"></div>
+                        <div class="petal"></div>
+                        <div class="petal"></div>
+                    </div>
+                </div>
+                <!-- 树13 -->
+                <div class="tree">
+                    <div class="trunk"></div>
+                    <div class="tree-top"> </div>
+                    <div class="tree-top"></div>
+                    <div class="tree-top"></div>
+                    <div class="branch-two">
+                        <div class="tree-top"></div>
+                    </div>
+                    <div class="branch-two">
+                        <div class="tree-top"></div>
+                    </div>
+                </div>
+                <!-- 树14 -->
+                <div class="tree">
+                    <!-- 树干 -->
+                    <div class="trunk"></div>
+                    <!-- 树顶部 -->
+                    <block wx:for='{{3}}' wx:key='*this'>
+                        <div class="tree-top">
+                            <block wx:for='{{20}}' wx:key='*this'>
+                                <div class="cone"> </div>
+                            </block>
+                        </div>
+                    </block>
+                </div>
+                <!-- 树15 -->
+                <div class="tree animated {{seasonAnimate}}" bindanimationend='seasonAnimateEnd' bindtap='clickSeason'>
+                    <div class="trunk"></div>
+                    <div class="tree-top">
+                        <block wx:for='{{20}}' wx:key='*this'>
+                            <div class="cone"> </div>
+                        </block>
+                    </div>
+                    <div class="tree-top">
+                        <block wx:for='{{20}}' wx:key='*this'>
+                            <div class="cone"> </div>
+                        </block>
+                    </div>
+                    <div class="tree-top">
+                        <block wx:for='{{40}}' wx:key='*this'>
+                            <div class="cone"></div>
+                        </block>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <view class="form-out">
+        <!-- 内容 -->
+
+        <!-- 第一步 -->
+        <view class="form-content animated {{animateType[0]}}" style="display:{{cardShow[0]}}" bindanimationend='animatedEnd' data-id="0">
+
+            <view class="title-style">
+                <view class="title-in-style">
+                    基 本 信 息
+                </view>
+            </view>
+            <yy-input title='姓名' placeholder='请输入真实姓名哦' err='{{errMsg.name}}' bindinput='handleName' maxlength='10' />
+            <yy-input title='学号' placeholder='同样也请输入真实学号哦' err='{{errMsg.number}}' bindinput="handleNumber" maxlength='10' />
+            <yy-input title='手机号' placeholder='请输入11位的手机号码' err='{{errMsg.phone}}' bindinput="handlePhone" maxlength='11' />
+
+            <view class="btn-group iconfont">
+                <view class="change-btn next" bindtap="next" data-id="0"></view>
+            </view>
+        </view>
+
+
+        <!-- 第二步 -->
+
+        <view class="form-content animated {{animateType[1]}}" style="display:{{cardShow[1]}}" bindanimationend='animatedEnd' data-id="1">
+
+            <view class="title-style">
+                <view class="title-in-style">
+                    更 多 信 息
+                </view>
+            </view>
+
+            <yy-input title='微信号' placeholder='这样可以方便我们联系你' bindinput="handleWeChat" maxlength='40' />
+            <view class="checkbox-text">
+                <view>学院 & 专业</view>
+                <view class="select-card " bindtap="showMajorPop"> {{signUpInfo.college}} -- {{signUpInfo.major}}</view>
+            </view>
+            <view class="btn-group iconfont">
+                <view class="change-btn pre" data-id="1" bindtap="pre"></view>
+                <view class="change-btn next" data-id="1" bindtap="next"></view>
+            </view>
+        </view>
+
+
+        <!-- 第三步 -->
+        <view class="form-content animated {{animateType[2]}}" style="display:{{cardShow[2]}}" bindanimationend='animatedEnd' data-id="2">
+
+            <view class="title-style">
+                <view class="title-in-style">
+                    方 向 选 择
+                </view>
+            </view>
+
+            <view class="checkbox-text direction-style">
+                <view>方向：{{checkboxSelect?'后台':'前端'}}</view>
+                <div class="button r button-6 {{checkboxSelect?'select-after':''}}" bindtap='handleDirection'>
+                    <div class="knobs">
+                    </div>
+                    <div class="layer"></div>
+                </div>
+            </view>
+
+            <view class="textarea-style">
+                <textarea maxlength='1000' class="skill-style" bindinput='handleSkill'></textarea>
+                <block wx:if='{{errMsg.skill !== "none"}}'>
+                    <text class="textarea-err">{{errMsg.skill}}</text>
+
+                </block>
+            </view>
+
+            <view class="btn-group iconfont">
+                <view class="change-btn pre" data-id="2" bindtap="pre"></view>
+                <view class="change-btn next" data-id="2" bindtap="next"></view>
+            </view>
+        </view>
+
+
+        <!-- 第四步 -->
+        <view class="form-content animated {{animateType[3]}}" style="display:{{cardShow[3]}}" bindanimationend='animatedEnd' data-id="3">
+
+            <view class="title-style">
+                <view class="title-in-style">
+                    自 我 介 绍
+                </view>
+            </view>
+
+            <view class="textarea-style">
+                <textarea maxlength='1000' bindinput="handleIntroduce"></textarea>
+
+                <block wx:if='{{errMsg.introduce !== "none"}}'>
+                    <text class="textarea-err">{{errMsg.introduce}}</text>
+                </block>
+            </view>
+            <view class="btn-out">
+                <view class="sign-up" style="background-color:{{signUpCSS.backgroundColor}};width:{{signUpCSS.width}};height:{{signUpCSS.height}};border-radius:{{signUpCSS.borderRadius}};box-shadow:{{signUpCSS.boxShadow}};transform:{{signUpCSS.transform}};" catchtap="handleSignUp"></view>
+            </view>
+            <view class="btn-group iconfont">
+                <view class="change-btn pre" data-id="3" bindtap="pre"></view>
+            </view>
+        </view>
+
+
+    </view>
+
+
+    <view class="bottom"></view>
+
+    <!-- 弹出层 -->
+    <van-popup show="{{ showMajorPop }}" round position="bottom" overlay="{{true}}" bind:close="onCloseMajorPop">
+        <!-- 选择器：多级联动 -->
+        <van-picker columns="{{ columns }}" bind:change="changeMajor" custom-class='picker-style' show-toolbar='{{true}}' title='学院&专业' bind:confirm='handleMajor' bind:cancel='onCloseMajorPop' toolbar-class='toolbar-class' active-class='active-class' />
+    </van-popup>
+</div>

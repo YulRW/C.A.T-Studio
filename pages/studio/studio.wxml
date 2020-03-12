@@ -17,9 +17,9 @@
             </view>
         </view>
 
-        <view class="pad-l-r-40 mar-t-b-30">
+        <view class="pad-l-r-40 mar-t-b-70 item">
             <view class="iconfont html-icon"></view>
-            <view class="item-title">HTML</view>
+            <view class="item-title mar-t-b-10">HTML</view>
             <view class="item-text">
                 <view>组成网页的骨架</view>
                 <view>使用标记标签来描述网页</view>
@@ -27,9 +27,9 @@
             </view>
         </view>
 
-        <view class="pad-l-r-40 mar-t-b-30">
+        <view class="pad-l-r-40 mar-t-b-70 item">
             <view class="iconfont css-icon"></view>
-            <view class="item-title">CSS</view>
+            <view class="item-title mar-t-b-10">CSS</view>
             <view class="item-text">
                 <view>修饰网页的内容</view>
                 <view>使页面展现地更加友好，结构更加灵活</view>
@@ -37,9 +37,9 @@
             </view>
         </view>
 
-        <view class="pad-l-r-40 mar-t-b-30">
+        <view class="pad-l-r-40 mar-t-b-70 item">
             <view class="iconfont js-icon"></view>
-            <view class="item-title">JavaScript</view>
+            <view class="item-title mar-t-b-10">JavaScript</view>
             <view class="item-text">
                 <view>充当网页的交互</view>
                 <view>响应用户操作，增加互动性</view>
@@ -90,11 +90,24 @@
             <view class="project-text pad-t-b-20">该项目已与广州羊城公司达成合作，使用了人脸识别、图片识别、红外感应等技术，致力于构建美丽智慧城市。</view>
         </view>
 
+        <view class="card">
+            <view class="card-title back-icon iconfont"> 工作室日常</view>
+        </view>
 
 
-        <view class="weui-footer">
+        <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}} mar-t-50" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+            <swiper-item wx:for="{{swiperList}}" wx:key='*this'>
+                <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+                <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+            </swiper-item>
+        </swiper>
+
+
+
+        <!-- 底部文字 -->
+        <view class="weui-footer mar-t-50 mar-b-30">
             <view class="weui-footer__links">
-                <navigator url="/pages/signUp/signUp" open-type='switchTab' class="weui-footer__link">立即报名</navigator>
+                <navigator url="/pages/signUpN/signUpN" open-type='switchTab' class="weui-footer__link">立即报名</navigator>
             </view>
             <view class="weui-footer__text">Copyright © 2019-2020 C.A.T Studio</view>
         </view>

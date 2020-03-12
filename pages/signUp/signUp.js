@@ -304,21 +304,36 @@ Page({
 
         let info = this.data.signUpInfo;
 
-        let data = {
-            weChatNumber: info.wechatNumber,
-            schoolNumber: info.number,
-            phone: info.phone,
-            college: info.college,
-            gender: info.gender,
-            major: info.major,
-            name: info.username,
-            direction: Number(info.direction),
-            selfIntroduction: info.introduce,
-            gpa: Number(info.gpa), // 绩点选填
-            openId: g.userData.openId,
-            userId: g.userData.id
+        if (!Number(info.gpa)) {
+            var data = {
+                weChatNumber: info.wechatNumber,
+                schoolNumber: info.number,
+                phone: info.phone,
+                college: info.college,
+                gender: info.gender,
+                major: info.major,
+                name: info.username,
+                direction: Number(info.direction),
+                selfIntroduction: info.introduce,
+                openId: g.userData.openId,
+                userId: g.userData.id
+            }
+        } else {
+            var data = {
+                weChatNumber: info.wechatNumber,
+                schoolNumber: info.number,
+                phone: info.phone,
+                college: info.college,
+                gender: info.gender,
+                major: info.major,
+                name: info.username,
+                direction: Number(info.direction),
+                selfIntroduction: info.introduce,
+                gpa: Number(info.gpa), // 绩点选填
+                openId: g.userData.openId,
+                userId: g.userData.id
+            }
         }
-
         //获取发送IP地址
         let url = g.ip.kjb + g.requestName.signUp
         yy.request({

@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "yy-input": "/components/yy-input/yy-input",
+        "van-picker": "/miniprogram_npm/@vant/weapp/picker/index",
+        "van-popup": "/miniprogram_npm/@vant/weapp/popup/index"
+    },
+    "navigationStyle": "custom"
+}

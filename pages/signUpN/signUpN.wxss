@@ -1,0 +1,308 @@
+/* pages/signUpN/signUpN.wxss */
+/* 引入四季css */
+@import "/utils/season.wxss";
+
+/* 引入动画 */
+@import "/utils/animate.wxss";
+
+/* 选项卡外框 */
+.color{
+    --err:hsl(20, 100%, 50%);
+    --suc:hsl(160, 66%, 53%);
+}
+
+.form-out {
+    position: relative;
+    width: 650rpx;
+    height: 60vh;
+    background-color: var(--bush);
+    transition: 4s ease background;
+    border-radius: 10rpx;
+    border-top-left-radius: 0rpx;
+    border-top-right-radius: 0rpx;
+}
+
+/* 选项卡 */
+
+.form-content {
+    position: absolute;
+    box-sizing: border-box;
+    width: 85%;
+    margin: 30rpx auto 0rpx auto;
+    left: 0;
+    right: 0;
+    background-color: #f2f5f7;
+    opacity: 0.7;
+    border-radius: 5rpx;
+    border-top-right-radius: 30rpx;
+    border-top-left-radius: 30rpx;
+    height: 90%;
+}
+
+/* 底部样式 */
+
+.bottom {
+    width: 100vw;
+    height: 150rpx;
+}
+
+/* 动画按钮样式 */
+
+.sign-up {
+    display: inline-block;
+    transition: 0.3s cubic-bezier(0.98, -0.01, 0.19, 0.98) all;
+    opacity: 1;
+}
+
+.btn-out {
+    position: relative;
+    z-index: 5;
+    margin-top: 100rpx;
+    text-align: center;
+}
+
+/* 上一个/下一个按钮 */
+
+.btn-group {
+    position: absolute;
+    bottom: -50rpx;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.change-btn {
+    position: relative;
+    /* background-color: #41aaf1; */
+    background-color: var(--dark);
+    transition: 4s ease background;
+    width: 100rpx;
+    margin: 0rpx 50rpx;
+    height: 100rpx;
+    border-radius: 100rpx;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+.pre::before {
+    content: "\e8ca";
+    position: absolute;
+    color: white;
+    font-size: 60rpx;
+    left: 20rpx;
+    top: 20rpx;
+}
+
+.next::before {
+    content: "\e8c9";
+    position: absolute;
+    color: white;
+    font-size: 60rpx;
+    left: 20rpx;
+    top: 20rpx;
+}
+
+/* 选项按钮 */
+
+.button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.knobs, .layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.button {
+    position: absolute;
+    /* top: 50%; */
+    right: 0;
+    width: 148rpx;
+    height: 72rpx;
+    overflow: hidden;
+    opacity: 1;
+}
+
+.button.r, .button.r .layer {
+    border-radius: 200rpx;
+}
+
+.checkbox {
+    position: relative;
+    width: 148rpx;
+    height: 72rpx;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.knobs {
+    z-index: 2;
+}
+
+.layer {
+    width: 148rpx;
+    /* background-color: #ebf7fc; *//* background-color: (--bgd-color); */
+    background-color: #667580;
+    transition: 0.3s ease all;
+    z-index: 1;
+}
+
+.button-6 {
+    overflow: visible;
+}
+
+.button-6 .knobs:before {
+    content: '前';
+    position: absolute;
+    top: 10rpx;
+    left: 8rpx;
+    width: 40rpx;
+    height: 20rpx;
+    color: #fff;
+    font-size: 20rpx;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1;
+    padding: 18rpx 8rpx;
+    /* background-color: #03a9f4; */
+    background-color: #58aced;
+    border-radius: 50%;
+}
+
+.button-6 .layer, .button-6 .knobs, .button-6 .knobs:before {
+    transform: rotateZ(0);
+    transition: 0.4s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+}
+
+.select-after .knobs {
+    transform: rotateZ(-180deg);
+}
+
+.select-after .knobs:before {
+    content: '后';
+    /* background-color: #f44336; */
+    background-color: #ce570b;
+    transform: rotateZ(180deg);
+}
+
+.select-after .layer {
+    /* background-color: #fcebeb; */
+    background-color: #febf10;
+    transform: rotateZ(180deg);
+}
+
+.checkbox-text {
+    position: relative;
+    font-size: 80%;
+    color: #6a7989;
+    font-weight: bold;
+    margin: 1.5em;
+    width: 80%;
+    margin-top: 100rpx;
+}
+
+.direction-style {
+    display: flex;
+    align-items: center;
+}
+
+
+/* 多行输入框样式 */
+.textarea-style{
+    margin-top: 100rpx;
+    padding: 1.5em;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 30rpx;
+    color: #6a7989;
+}
+
+.textarea-style textarea{
+    padding: 30rpx;
+    width: auto;
+    height: 350rpx;
+    border: 8rpx dashed var(--medium);
+    border-radius: 10rpx;
+    transition: 4s all ;
+
+}
+
+.textarea-style .skill-style{
+    height: 300rpx;
+}
+
+
+/* 学院和专业 */
+.select-card{
+    height: 50rpx;
+    background-color: var(--medium);
+    margin:30rpx 0;
+    border-radius: 10rpx;
+    transition: .5s all;
+    line-height: 50rpx;
+    color: white;
+    /* text-indent: 2em; */
+    text-align: center;
+}
+
+
+.select-card:active{
+    background-color: var(--dark);
+
+}
+
+
+/* picker样式 */
+.toolbar-class .van-picker__confirm{
+    color: var(--medium);
+    font-weight: bolder;
+}
+
+
+.toolbar-class .van-picker__cancel{
+    color: var(--medium);
+    font-weight: bolder;
+}
+
+.toolbar-class{
+    color: var(--dark);
+}
+
+view .active-class{
+    font-weight: bolder;
+    color: var(--medium);
+}
+
+
+/* 选项卡标题样式 */
+.title-style{
+    position: absolute;
+    font-size: 40rpx;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -20rpx;
+    text-align: center;
+}
+
+.title-in-style{
+    display: inline-block;
+    font-size: 35rpx;
+    color: var(--bgd-color);
+    font-weight: bolder;
+    background-color: var(--medium);
+    padding: 5rpx;
+    padding-left: 15rpx;
+    padding-right: 15rpx;
+    border-radius: 15rpx;
+}
+
+
+.textarea-err{
+    color: var(--err);
+}

@@ -1,10 +1,12 @@
 {
     "pages": [
         "pages/user/user/user",
+        "pages/signUpN/signUpN",
+        "pages/signUpBefore/signUpBefore",
         "pages/user/progress/progress",
         "pages/signUp/signUp",
-        "pages/getInfo/getInfo",
-        "pages/studio/studio"
+        "pages/studio/studio",
+        "pages/getInfo/getInfo"
     ],
     "window": {
         "navigationBarBackgroundColor": "#0f4c81",
@@ -28,12 +30,11 @@
                 "selectedIconPath": "/assets/images/tabbar/studio_a.png"
             },
             {
-                "pagePath": "pages/signUp/signUp",
+                "pagePath": "pages/signUpBefore/signUpBefore",
                 "text": "报名",
                 "iconPath": "/assets/images/tabbar/signUp.png",
                 "selectedIconPath": "/assets/images/tabbar/signUp_a.png"
             },
-
             {
                 "pagePath": "pages/user/user/user",
                 "text": "我的",
