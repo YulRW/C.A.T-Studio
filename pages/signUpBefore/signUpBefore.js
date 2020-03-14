@@ -1,11 +1,13 @@
 // pages/signUpBefore/signUpBefore.js
+const app = getApp();
+const g = app.globalData;
+const yy = require('../../utils/Promise.js');
 Page({
 
     /**
      * 页面的初始数据
      */
-    data: {
-    },
+    data: {},
 
     /**
      * 生命周期函数--监听页面加载
@@ -25,9 +27,37 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-        wx.redirectTo({
-            url:'/pages/signUpN/signUpN'
-        })
+
+        if (!app.globalData.status.userData) {
+            yy.showModal({
+                    title: '温馨提示',
+                    content: '抱歉，要使用报名功能请先进行登录授权，只需一步即可',
+                    confirmText: "一键登录",
+                    confirmColor: "#0f4c81"
+                })
+                .then(res => {
+                    if (res.confirm) {
+                        wx.navigateTo({
+                            url: '/pages/getInfo/getInfo'
+                        })
+                        throw 'err';
+                    } else if (res.cancel) {
+                        wx.switchTab({
+                            url: '/pages/user/user/user',
+                        })
+                        throw 'err';
+                    }
+                })
+                .catch(res => {
+
+                })
+
+
+        } else {
+            wx.redirectTo({
+                url: '/pages/signUpN/signUpN'
+            })
+        }
     },
 
     /**

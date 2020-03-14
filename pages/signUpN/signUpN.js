@@ -5,7 +5,7 @@ const app = getApp();
 const g = app.globalData;
 
 // 获取promise接口
-// const yy = require('../../utils/Promise.js');
+const yy = require('../../utils/Promise.js');
 
 
 // 获取touch工具
@@ -26,6 +26,172 @@ const majorArray = {
 }
 
 Page({
+    toIndex(){
+        wx.switchTab({
+            url: '/pages/user/user/user',
+        })
+    },
+
+    test(e){
+        console.log(e)
+    },
+    // 报名按钮动画结束监听
+    handleSignUpAM() {
+        // 判错
+        this.signUpIsError(this.data.errMsg)
+
+        
+        //按时按钮展开后文本
+        this.setData({
+            signUpText: true
+        })
+    },
+
+    // 判断报名信息是否出错
+    signUpIsError(errorObj) {
+        let i;
+        var error = false;
+        for (i in errorObj) {
+            if (!this.isEmpty(errorObj[i]) || errorObj[i] === 'none') {
+                error = true;
+            }
+        }
+
+        if (error === true) {
+            this.setData({
+                signUpStatus: 3
+            })
+            console.log('有错')
+            return 'error';
+        } else {
+            console.log('无错')
+
+            //判空
+            this.signUpIsEmpty(this.data.signUpInfo)
+
+            return 'success'
+        }
+
+    },
+
+    //判断报名信息是否为空
+    signUpIsEmpty(obj) {
+
+        let i;
+        var isNull = false;
+
+
+        for (i in obj) {
+            if (this.isEmpty(obj[i])) {
+                isNull = true;
+            }
+        }
+
+        if (isNull === true) {
+            this.setData({
+                signUpStatus: 3
+            })
+            console.log('有空')
+            return 'error';
+        } else {
+            this.handleSignUpStatus();
+            console.log('无空')
+            return 'success'
+        }
+
+    },
+
+    // 报名按钮
+    signUp() {
+
+        let info = this.data.signUpInfo;
+
+
+        var data = {
+            weChatNumber: info.wechatNumber,
+            schoolNumber: info.number,
+            phone: info.phone,
+            college: info.college,
+            gender: info.gender,
+            major: info.major,
+            name: info.name,
+            direction: Number(info.direction),
+            selfIntroduction: info.introduce,
+            skills: info.skill,
+            openId: g.userData.openId,
+            userId: g.userData.id
+        }
+
+        //获取发送IP地址
+        let url = g.ip.kjb + g.requestName.signUp
+        yy.request({
+                url: url,
+                method: 'POST',
+                data: data
+            })
+            .then(res => {
+
+                //报名出问题
+                if (res.data.code !== 200) {
+
+                    // 临时
+                    wx.showToast({
+                        icon: 'none',
+                        title: res.data.message,
+                    })
+                    //出错
+                    throw 'err'
+                }
+
+                // 报名成功
+                app.globalData.status.progressChange = true;
+                app.globalData.userData.status = 1;
+
+                return yy.showModal({
+                    title: '报名成功',
+                    content: '面试进度和后续通知可以在 “我的”--“面试进度” 里查看，请留意。建议点击“消息订阅”，有通知后会在微信里发出',
+                    showCancel: false,
+                    confirmText: "订阅消息",
+                    confirmColor: "#0f4c81"
+                });
+            })
+
+            .then(res => {
+                //清空输入框
+                // this.clearInput();
+
+                //禁止再次报名
+                // this.setData({
+                //     disabled: true
+                // })
+
+
+                if (res.confirm) {
+                    return yy.requestSubscribeMessage({
+                        tmplIds: ['MSZh8bVBbQbTNgr8sJGXh3WQiX57E7tvRBg_sATsJBY', 'gbSdXrEZ6f1QVcTAQIwBEhcOMr8EdvMKfAAZ8Xal4mY']
+                    })
+                } else {
+                    throw 'err'
+                }
+            })
+            .then(res => {
+
+                if (res.errMsg == 'requestSubscribeMessage:ok') {
+                    // 消息订阅成功
+                    wx.switchTab({
+                        url: '/pages/user/user/user',
+                    })
+
+                } else {
+                    throw 'err'
+                }
+            })
+            .catch(res => {
+                g.errorMsg = res;
+            })
+
+    },
+
     // 触摸开始
     touchStart(e) {
         this.setData({
@@ -66,13 +232,20 @@ Page({
 
         let re = /^[\u4e00-\u9fa5]{2,10}$/;
 
-        if (!re.test(e.detail.value) && e.detail.value != '') {
+        if (e.detail.value === '') {
             this.setData({
-                'errMsg.name': "请再检查输入的真名哦"
+                'errMsg.name': "",
+                'sucMsg.name':""
+            })
+        } else if (!re.test(e.detail.value)) {
+            this.setData({
+                'errMsg.name': "请再检查输入的真名哦",
+                'sucMsg.name':''
             })
         } else {
             this.setData({
-                'errMsg.name': ""
+                'errMsg.name': "",
+                'sucMsg.name': "nice!我们眼熟你了~"
             })
         }
     },
@@ -87,13 +260,20 @@ Page({
 
         let re = /^3[12]1900\d{4}$/;
 
-        if (!re.test(e.detail.value) && e.detail.value != '') {
+        if (e.detail.value === '') {
             this.setData({
-                'errMsg.number': "朋友，你确定是19级的嘛？"
+                'errMsg.number': "",
+                'sucMsg.number': ""
+            })
+        } else if (!re.test(e.detail.value)) {
+            this.setData({
+                'errMsg.number': "朋友，你确定是19级的嘛？",
+                'sucMsg.number': ''
             })
         } else {
             this.setData({
-                'errMsg.number': ""
+                'errMsg.number': "",
+                'sucMsg.number': "不错~下一步吧"
             })
         }
     },
@@ -124,29 +304,61 @@ Page({
         })
         let re = /^[1][3,4,5,6,7,8,9][0-9]{9}$/;
 
-        if (!re.test(e.detail.value) && e.detail.value != '') {
+        if (e.detail.value === '') {
             this.setData({
-                'errMsg.phone': "那个...手机号是中国的吗？"
+                'errMsg.phone': "",
+                'sucMsg.phone': ""
+            })
+        } else if (!re.test(e.detail.value)) {
+            this.setData({
+                'errMsg.phone': "那个...手机号是中国的吗？",
+                'sucMsg.phone': ''
             })
         } else {
             this.setData({
-                'errMsg.phone': ""
+                'errMsg.phone': "",
+                'sucMsg.phone': "很好~我们会好好保密的"
             })
         }
     },
 
     //处理微信号
     handleWeChat(e) {
+
         this.setData({
             'signUpInfo.wechatNumber': e.detail.value
         })
+
+        let re = /^[a-zA-Z][a-zA-Z0-9_-]{5,19}$/;
+        let re2 = /^[1][3,4,5,6,7,8,9][0-9]{9}$/;
+
+        if (e.detail.value === '') {
+            this.setData({
+                'errMsg.weChat': "",
+                'sucMsg.weChat': ""
+            })
+        } else if (!re.test(e.detail.value) && !re2.test(e.detail.value)) {
+            this.setData({
+                'errMsg.weChat': "格式不对吧？(手机同号填手机号也可)",
+                'sucMsg.weChat': ''
+            })
+        } else {
+            this.setData({
+                'errMsg.weChat': "",
+                'sucMsg.weChat': "很好~我们会好好保密的"
+            })
+        }
+
+        
     },
 
     //处理方向选择
     handleDirection(e) {
         this.setData({
-            checkboxSelect: !this.data.checkboxSelect
+            checkboxSelect: !this.data.checkboxSelect,
+            'signUpInfo.direction': this.data.checkboxSelect ? 1 : 2
         })
+
     },
 
     //处理学院专业
@@ -190,16 +402,20 @@ Page({
     },
 
     //季节互动动画结束
-    seasonAnimateEnd() {
+    seasonAnimateEnd(e) {
+        console.log(e)
+        let index = `seasonAnimate[${e.currentTarget.dataset.id}]`
         this.setData({
-            seasonAnimate: ''
+            [index]: ''
         })
     },
 
     // 点击季节互动事件
-    clickSeason() {
+    clickSeasonTree(e) {
+        console.log(e)
+        let index = `seasonAnimate[${e.currentTarget.dataset.id}]`
         this.setData({
-            seasonAnimate: 'rubberBand'
+            [index]: 'rubberBand'
         })
     },
 
@@ -291,15 +507,22 @@ Page({
 
     // 冒泡取消事件
     click() {
+        this.closeSignUpBtn()
+
+    },
+
+    //关闭报名按钮
+    closeSignUpBtn() {
         this.setData({
-            signUpCSS: this.data.btnCloseCSS
+            signUpAM: false,
+            signUpText: false
         })
     },
 
     // 动画按钮效果
     handleSignUp() {
         this.setData({
-            signUpCSS: this.data.btnOpenCSS
+            signUpAM: true
         })
     },
     data: {
@@ -384,7 +607,7 @@ Page({
         curCard: 0,
 
         // 季节动画
-        seasonAnimate: '',
+        seasonAnimate:[],
 
         // ---------------报名表单----------------
 
@@ -395,8 +618,8 @@ Page({
             gender: '',
             phone: '',
             wechatNumber: '',
-            college: '请选择',
-            major: '请选择',
+            college: '',
+            major: '',
             direction: "1",
             skill: '',
             introduce: "",
@@ -409,7 +632,19 @@ Page({
             number: '',
             phone: '',
             skill: 'none',
-            introduce: 'none'
+            introduce: 'none',
+            weChat:''
+            
+        },
+
+        //成功消息
+        sucMsg:{
+            name: '',
+            number: '',
+            phone: '',
+            weChat: '',
+            skill: '',
+            introduce: '',
         },
 
         // 方向选择状态
@@ -430,7 +665,15 @@ Page({
         //弹窗状态管理
 
         //学院与专业弹窗
-        showMajorPop: false
+        showMajorPop: false,
+
+        //报名按钮动画
+        signUpAM: false,
+        signUpText: false,
+
+        //报名状态：1-未报名且没错；2-已报名 ；3-表单有误
+        signUpStatus: 1,
+
     },
 
 
@@ -465,6 +708,28 @@ Page({
         this.updateSeasons();
         console.log(Object.keys(majorArray))
 
+    },
+
+    onShow() {
+        // 配置报名状态：未报名,已报名,表单填写有误
+        if (app.globalData.userData.status > 0) {
+            this.setData({
+                signUpStatus: 2
+            })
+        }
+    },
+
+    //报名状态
+    handleSignUpStatus() {
+        if (app.globalData.userData.status > 0) {
+            this.setData({
+                signUpStatus: 2
+            })
+        } else {
+            this.setData({
+                signUpStatus: 1
+            })
+        }
     },
 
     // 季节动画

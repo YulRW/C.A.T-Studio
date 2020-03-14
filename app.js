@@ -123,3 +123,10 @@ App({
 //             "iconPath": "/assets/images/tabbar/messageBoard.png",
 //                 "selectedIconPath": "/assets/images/tabbar/messageBoard_a.png"
 // },
+
+// {
+//     "pagePath": "pages/studio/studio",
+//         "text": "简介",
+//             "iconPath": "/assets/images/tabbar/studio.png",
+//                 "selectedIconPath": "/assets/images/tabbar/studio_a.png"
+// },

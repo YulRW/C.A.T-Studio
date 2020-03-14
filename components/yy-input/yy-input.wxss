@@ -24,6 +24,10 @@
     border-color: var(--err);
 }
 
+.sucColor .input__label--hoshi-color-1::after {
+    border-color: var(--suc);
+}
+
 .out {
     position: relative;
 }
@@ -31,7 +35,15 @@
 .err {
     position: absolute;
     margin-left: 1.5em;
-    bottom: 0em;
+    bottom: -0.2em;
     font-size: 25rpx;
     color: var(--err);
+}
+
+.suc {
+    position: absolute;
+    margin-left: 1.5em;
+    bottom: -0.2em;
+    font-size: 25rpx;
+    color: var(--suc);
 }

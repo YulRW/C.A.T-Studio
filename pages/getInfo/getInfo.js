@@ -28,7 +28,7 @@ Page({
                     data: {
                         code: res.code,
                         iv: e.detail.iv,
-                        data: e.detail.encryptedData
+                        encryptedData: e.detail.encryptedData
                     },
                 })
             })

@@ -1,4 +1,5 @@
 /* pages/signUpN/signUpN.wxss */
+
 /* 引入四季css */
 @import "/utils/season.wxss";
 
@@ -6,9 +7,10 @@
 @import "/utils/animate.wxss";
 
 /* 选项卡外框 */
-.color{
-    --err:hsl(20, 100%, 50%);
-    --suc:hsl(160, 66%, 53%);
+
+.color {
+    --err: hsl(20, 100%, 50%);
+    --suc: hsl(160, 66%, 53%);
 }
 
 .form-out {
@@ -44,21 +46,6 @@
 .bottom {
     width: 100vw;
     height: 150rpx;
-}
-
-/* 动画按钮样式 */
-
-.sign-up {
-    display: inline-block;
-    transition: 0.3s cubic-bezier(0.98, -0.01, 0.19, 0.98) all;
-    opacity: 1;
-}
-
-.btn-out {
-    position: relative;
-    z-index: 5;
-    margin-top: 100rpx;
-    text-align: center;
 }
 
 /* 上一个/下一个按钮 */
@@ -164,7 +151,7 @@
     width: 40rpx;
     height: 20rpx;
     color: #fff;
-    font-size: 20rpx;
+    font-size: 25rpx;
     font-weight: 700;
     text-align: center;
     line-height: 1;
@@ -211,9 +198,9 @@
     align-items: center;
 }
 
-
 /* 多行输入框样式 */
-.textarea-style{
+
+.textarea-style {
     margin-top: 100rpx;
     padding: 1.5em;
     padding-top: 0;
@@ -222,65 +209,61 @@
     color: #6a7989;
 }
 
-.textarea-style textarea{
+.textarea-style textarea {
     padding: 30rpx;
     width: auto;
     height: 350rpx;
     border: 8rpx dashed var(--medium);
     border-radius: 10rpx;
-    transition: 4s all ;
-
+    transition: 4s all;
 }
 
-.textarea-style .skill-style{
-    height: 300rpx;
+.textarea-style .skill-style {
+    height: 250rpx;
 }
-
 
 /* 学院和专业 */
-.select-card{
+
+.select-card {
     height: 50rpx;
     background-color: var(--medium);
-    margin:30rpx 0;
+    margin: 30rpx 0;
     border-radius: 10rpx;
-    transition: .5s all;
+    transition: 0.5s all;
     line-height: 50rpx;
     color: white;
     /* text-indent: 2em; */
     text-align: center;
 }
 
-
-.select-card:active{
+.select-card:active {
     background-color: var(--dark);
-
 }
-
 
 /* picker样式 */
-.toolbar-class .van-picker__confirm{
+
+.toolbar-class .van-picker__confirm {
     color: var(--medium);
     font-weight: bolder;
 }
 
-
-.toolbar-class .van-picker__cancel{
+.toolbar-class .van-picker__cancel {
     color: var(--medium);
     font-weight: bolder;
 }
 
-.toolbar-class{
+.toolbar-class {
     color: var(--dark);
 }
 
-view .active-class{
+view .active-class {
     font-weight: bolder;
     color: var(--medium);
 }
 
-
 /* 选项卡标题样式 */
-.title-style{
+
+.title-style {
     position: absolute;
     font-size: 40rpx;
     margin: 0 auto;
@@ -290,7 +273,7 @@ view .active-class{
     text-align: center;
 }
 
-.title-in-style{
+.title-in-style {
     display: inline-block;
     font-size: 35rpx;
     color: var(--bgd-color);
@@ -302,7 +285,111 @@ view .active-class{
     border-radius: 15rpx;
 }
 
-
-.textarea-err{
+.textarea-err {
     color: var(--err);
+}
+
+/* 动画按钮样式 */
+
+.sign-up {
+    position: relative;
+    display: inline-block;
+    transition: 0.5s cubic-bezier(0.98, -0.01, 0.19, 0.98) all;
+    opacity: 1;
+}
+
+.sign-up-animate {
+    animation: getEnd 0.5s;
+}
+
+@keyframes getEnd {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.btn-out {
+    position: relative;
+    z-index: 5;
+    margin-top: 20rpx;
+    text-align: center;
+}
+
+.sign-up-before {
+    /* background-color: #41aaf1; */
+    background-color: var(--dark);
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100rpx;
+    /* transform: translateY(0rpx); */
+}
+
+.sign-up-before::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    content: "\e7d5";
+    font-size: 60rpx;
+    color: white;
+}
+
+.sign-up-after {
+    background-color: #fff;
+    width: 500rpx;
+    height: 300rpx;
+    border-radius: 15px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3);
+    transform: translateY(-100rpx);
+}
+
+.sign-title {
+    font-size: 50rpx;
+    margin: 20rpx 0;
+    font-weight: bolder;
+}
+
+.sign-tip {
+    font-size: 25rpx;
+    margin: 20rpx 0;
+}
+
+.sign-up-btn-after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 15rpx;
+    background-color: var(--medium);
+}
+
+.forward {
+    margin-top: 30rpx;
+}
+
+.fourg {
+    margin-top: 60rpx;
+}
+
+
+.zhanwei{
+    margin: 15rpx 0;
+}
+
+
+.back-btn{
+}
+
+.back-btn::before{
+    position: absolute;
+    display: inline-block;
+    top: 65rpx;
+    left: 30rpx;
+    font-size: 50rpx;
+    content: '\e8ca';
+    color: white;
 }

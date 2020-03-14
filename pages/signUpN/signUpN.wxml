@@ -45,31 +45,31 @@
                 </div>
             </div>
             <!-- 树组 -->
-            <div class="tree-group">
+            <div class="tree-group" >
                 <!-- 树1 -->
-                <div class="tree">
+                <div class="tree animated {{seasonAnimate[1]}}"  data-id='1' bindtap='clickSeasonTree' bindanimationend='seasonAnimateEnd'>
                     <div class="trunk"></div>
                     <div class="tree-top"></div>
                 </div>
                 <!-- 树2 -->
-                <div class="tree">
+                <div class="tree animated {{seasonAnimate[2]}}" data-id='2' bindtap='clickSeasonTree' bindanimationend='seasonAnimateEnd'>
                     <div class="trunk"></div>
                     <div class="tree-top"></div>
                 </div>
                 <!-- 树3 -->
-                <div class="tree">
+                <div class="tree animated {{seasonAnimate[3]}}" data-id='3' bindtap='clickSeasonTree' bindanimationend='seasonAnimateEnd'>
                     <div class="trunk"></div>
                     <div class="tree-top"></div>
                 </div>
                 <!-- 树4 -->
-                <div class="tree">
+                <div class="tree animated {{seasonAnimate[4]}}" data-id='4' bindtap='clickSeasonTree' bindanimationend='seasonAnimateEnd'>
                     <div class="trunk"></div>
                     <block wx:for='{{12}}' wx:key='*this'>
                         <div class="branch"></div>
                     </block>
                 </div>
                 <!-- 树5 -->
-                <div class="tree">
+                <div class="tree animated {{seasonAnimate[5]}}" data-id='5' bindtap='clickSeasonTree' bindanimationend='seasonAnimateEnd'>
                     <div class="trunk"></div>
                     <div class="tree-top"></div>
                     <div class="tree-top"></div>
@@ -84,17 +84,17 @@
                     </div>
                 </div>
                 <!-- 树6 -->
-                <div class="tree">
+                <div class="tree animated {{seasonAnimate[6]}}" data-id='6' bindtap='clickSeasonTree' bindanimationend='seasonAnimateEnd'>
                     <div class="trunk"></div>
                     <div class="tree-top"></div>
                 </div>
                 <!-- 树7 -->
-                <div class="tree">
+                <div class="tree animated {{seasonAnimate[7]}}" data-id='7' bindtap='clickSeasonTree' bindanimationend='seasonAnimateEnd'>
                     <div class="trunk"></div>
                     <div class="tree-top"></div>
                 </div>
                 <!-- 树8 -->
-                <div class="tree">
+                <div class="tree animated {{seasonAnimate[8]}}" data-id='8' bindtap='clickSeasonTree' bindanimationend='seasonAnimateEnd'>
                     <div class="trunk"></div>
                     <div class="tree-top">
                         <block wx:for='{{20}}' wx:key='*this'>
@@ -117,12 +117,12 @@
                     </div>
                 </div>
                 <!-- 树9 -->
-                <div class="tree">
+                <div class="tree animated {{seasonAnimate[9]}}" data-id='9' bindtap='clickSeasonTree' bindanimationend='seasonAnimateEnd'>
                     <div class="trunk"></div>
                     <div class="tree-top"> </div>
                 </div>
                 <!-- 树10 -->
-                <div class="tree">
+                <div class="tree animated {{seasonAnimate[10]}}" data-id='10' bindtap='clickSeasonTree' bindanimationend='seasonAnimateEnd'>
                     <div class="trunk"></div>
                     <block wx:for='{{10}}' wx:key='*this'>
                         <div class="branch">
@@ -140,14 +140,14 @@
                     </block>
                 </div>
                 <!-- 树11 -->
-                <div class="tree">
+                <div class="tree  animated {{seasonAnimate[11]}}" data-id='11' bindtap='clickSeasonTree' bindanimationend='seasonAnimateEnd'>
                     <div class="trunk"></div>
                     <div class="tree-top"></div>
                     <div class="tree-top"></div>
                     <div class="tree-top"></div>
                 </div>
                 <!-- 树12 -->
-                <div class="tree">
+                <div class="tree  animated {{seasonAnimate[12]}}" data-id='12' bindtap='clickSeasonTree' bindanimationend='seasonAnimateEnd'>
                     <div class="trunk"> </div>
                     <div class="tree-top">
                         <block wx:for='{{20}}' wx:key='*this'>
@@ -170,7 +170,7 @@
                     </div>
                 </div>
                 <!-- 树13 -->
-                <div class="tree">
+                <div class="tree  animated {{seasonAnimate[13]}}" data-id='13' bindtap='clickSeasonTree' bindanimationend='seasonAnimateEnd'> 
                     <div class="trunk"></div>
                     <div class="tree-top"> </div>
                     <div class="tree-top"></div>
@@ -183,7 +183,7 @@
                     </div>
                 </div>
                 <!-- 树14 -->
-                <div class="tree">
+                <div class="tree  animated {{seasonAnimate[14]}}" data-id='14' bindtap='clickSeasonTree' bindanimationend='seasonAnimateEnd'>
                     <!-- 树干 -->
                     <div class="trunk"></div>
                     <!-- 树顶部 -->
@@ -196,7 +196,7 @@
                     </block>
                 </div>
                 <!-- 树15 -->
-                <div class="tree animated {{seasonAnimate}}" bindanimationend='seasonAnimateEnd' bindtap='clickSeason'>
+                <div class="tree animated {{seasonAnimate[15]}}"  data-id='15' bindtap='clickSeasonTree' bindanimationend='seasonAnimateEnd'>
                     <div class="trunk"></div>
                     <div class="tree-top">
                         <block wx:for='{{20}}' wx:key='*this'>
@@ -228,9 +228,12 @@
                     基 本 信 息
                 </view>
             </view>
-            <yy-input title='姓名' placeholder='请输入真实姓名哦' err='{{errMsg.name}}' bindinput='handleName' maxlength='10' />
-            <yy-input title='学号' placeholder='同样也请输入真实学号哦' err='{{errMsg.number}}' bindinput="handleNumber" maxlength='10' />
-            <yy-input title='手机号' placeholder='请输入11位的手机号码' err='{{errMsg.phone}}' bindinput="handlePhone" maxlength='11' />
+
+            <view class="zhanwei"></view>
+
+            <yy-input title='姓名' placeholder='请输入真实姓名哦' err='{{errMsg.name}}' bindinput='handleName' maxlength='10' suc='{{sucMsg.name}}'/>
+            <yy-input title='学号' placeholder='同样也请输入真实学号哦' err='{{errMsg.number}}' bindinput="handleNumber" maxlength='10' suc='{{sucMsg.number}}'/>
+            <yy-input title='手机号' placeholder='请输入11位的手机号码' err='{{errMsg.phone}}' bindinput="handlePhone" maxlength='11' suc='{{sucMsg.phone}}'/>
 
             <view class="btn-group iconfont">
                 <view class="change-btn next" bindtap="next" data-id="0"></view>
@@ -247,11 +250,11 @@
                     更 多 信 息
                 </view>
             </view>
-
-            <yy-input title='微信号' placeholder='这样可以方便我们联系你' bindinput="handleWeChat" maxlength='40' />
+            <view class="zhanwei"></view>
+            <yy-input title='微信号' placeholder='这样可以方便我们联系你' bindinput="handleWeChat" maxlength='40' err='{{errMsg.weChat}}' suc='{{sucMsg.weChat}}'/>
             <view class="checkbox-text">
                 <view>学院 & 专业</view>
-                <view class="select-card " bindtap="showMajorPop"> {{signUpInfo.college}} -- {{signUpInfo.major}}</view>
+                <view class="select-card " bindtap="showMajorPop"> {{signUpInfo.college ? signUpInfo.college : '请选择'}} -- {{signUpInfo.major ? signUpInfo.major : '请选择'}}</view>
             </view>
             <view class="btn-group iconfont">
                 <view class="change-btn pre" data-id="1" bindtap="pre"></view>
@@ -278,7 +281,10 @@
                 </div>
             </view>
 
-            <view class="textarea-style">
+            <view class="checkbox-text">
+                <view>你会哪些关于计算机方面的技术吗？编程、设计、剪辑等皆可，请尽可能展现你自己~会做ppt、推文之类的也算的哦 </view>
+            </view>
+            <view class="textarea-style forward">
                 <textarea maxlength='1000' class="skill-style" bindinput='handleSkill'></textarea>
                 <block wx:if='{{errMsg.skill !== "none"}}'>
                     <text class="textarea-err">{{errMsg.skill}}</text>
@@ -301,25 +307,57 @@
                     自 我 介 绍
                 </view>
             </view>
-
-            <view class="textarea-style">
+            <view class="checkbox-text fourg">
+                <view>我们还不认识你呢，请简单介绍下你自己吧~（兴趣、爱好、性格、特长等皆可） </view>
+            </view>
+            <view class="textarea-style forward">
                 <textarea maxlength='1000' bindinput="handleIntroduce"></textarea>
 
                 <block wx:if='{{errMsg.introduce !== "none"}}'>
                     <text class="textarea-err">{{errMsg.introduce}}</text>
                 </block>
             </view>
+
+            <!-- 报名按钮 -->
             <view class="btn-out">
-                <view class="sign-up" style="background-color:{{signUpCSS.backgroundColor}};width:{{signUpCSS.width}};height:{{signUpCSS.height}};border-radius:{{signUpCSS.borderRadius}};box-shadow:{{signUpCSS.boxShadow}};transform:{{signUpCSS.transform}};" catchtap="handleSignUp"></view>
+                <view class="sign-up {{signUpAM? 'sign-up-after':'sign-up-before'}} {{signUpAM ? 'sign-up-animate' : ''}} iconfont" catchtap="handleSignUp" bindanimationend='handleSignUpAM'>
+
+
+
+                    <block wx:if='{{signUpText}}'>
+
+                        <block wx:if='{{signUpStatus === 1}}'>
+
+                            <view class="sign-title"> 确认报名？</view>
+                            <view class="sign-tip">请确保自己的信息填写无误，每人只可报名一次，修改信息需找师兄师姐</view>
+                            <button catchtap="signUp" class="sign-up-btn-after">报名</button>
+
+                        </block>
+
+                        <block wx:elif='{{signUpStatus === 2}}'>
+                            <view class="sign-title"> 抱歉</view>
+                            <view class="sign-tip">系统检测该账号已经进行过报名操作，如有修改或者其他问题请联系师兄师姐！谢谢</view>
+                            <button catchtap="toIndex" class="sign-up-btn-after">返回主页</button>
+                        </block>
+
+                        <block wx:elif='{{signUpStatus === 3}}'>
+                            <view class="sign-title">检查</view>
+                            <view class="sign-tip">哎呀，检测到你填写的信息有误或者有些未填呢，请再检查一遍吧谢谢！</view>
+                            <button catchtap="closeSignUpBtn" class="sign-up-btn-after">返回</button>
+                        </block>
+
+
+                    </block>
+
+                </view>
             </view>
+
+            <!-- 上一个按钮 -->
             <view class="btn-group iconfont">
                 <view class="change-btn pre" data-id="3" bindtap="pre"></view>
             </view>
         </view>
-
-
     </view>
-
 
     <view class="bottom"></view>
 
@@ -328,4 +366,7 @@
         <!-- 选择器：多级联动 -->
         <van-picker columns="{{ columns }}" bind:change="changeMajor" custom-class='picker-style' show-toolbar='{{true}}' title='学院&专业' bind:confirm='handleMajor' bind:cancel='onCloseMajorPop' toolbar-class='toolbar-class' active-class='active-class' />
     </van-popup>
+
+    <!-- 返回按钮 -->
+    <view class="back-btn iconfont" catchtap="toIndex"></view>
 </div>

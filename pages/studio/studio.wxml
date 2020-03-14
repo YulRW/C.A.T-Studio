@@ -107,7 +107,7 @@
         <!-- 底部文字 -->
         <view class="weui-footer mar-t-50 mar-b-30">
             <view class="weui-footer__links">
-                <navigator url="/pages/signUpN/signUpN" open-type='switchTab' class="weui-footer__link">立即报名</navigator>
+                <navigator url="/pages/signUpBefore/signUpBefore" open-type='switchTab' class="weui-footer__link">立即报名</navigator>
             </view>
             <view class="weui-footer__text">Copyright © 2019-2020 C.A.T Studio</view>
         </view>

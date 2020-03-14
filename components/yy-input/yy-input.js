@@ -30,6 +30,16 @@ Component({
                 }
             }
         },
+        suc:{
+            type:String,
+            value:'',
+            observer: function (newVal, oldVal) {
+                if (newVal) {
+                    console.log(newVal)
+                    this.changeColor('sucColor')
+                }
+            }
+        },
         maxlength:{
             type:Number,
             value:-1
