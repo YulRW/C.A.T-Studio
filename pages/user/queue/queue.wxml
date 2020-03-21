@@ -1,0 +1,148 @@
+<view class="page" wx:if='{{!isLoading}}'>
+    <view class="weui-msg">
+
+        <!-- 图标管理 -->
+        <view class="weui-msg__icon-area">
+            <!-- 0:未预约 -->
+            <block wx:if="{{notice.status === 0}}">
+                <icon type="info" size="64" class="animated {{change.one}}" bindanimationend='animateEnd'></icon>
+            </block>
+            <!-- 1：已预约 -->
+            <block wx:elif='{{notice.status === 1}}'>
+                <icon type="success" size="64" class="animated {{change.two}}"></icon>
+            </block>
+            <!-- 2：未开放 -->
+            <block wx:elif='{{notice.status === 2}}'>
+                <icon type="warn" size="64"></icon>
+            </block>
+        </view>
+
+        <!-- 信息栏 -->
+        <view class="weui-msg__text-area bottom-wx">
+
+
+
+
+
+            <!-- 0:未预约 -->
+            <block wx:if="{{notice.status === 0}}">
+
+
+                <!-- 预约标题：面试预约、考核答辩预约 -->
+                <view class="weui-msg__title animated {{change.one}}">{{notice.title}}
+                </view>
+
+
+                <view class="weui-msg__desc animated {{change.one}}">{{notice.content}}
+                </view>
+
+                <picker mode='selector' range='{{select}}' bindchange='handleSelect'>
+
+                    <button class="animated {{change.one}}">{{time === ''?'选择预约时间':time}}</button>
+
+                </picker>
+
+                <view class="tips animated {{change.one}}">{{notice.prompt}}</view>
+                <button class="yuyue animated {{change.one}}" bindtap="push">预约</button>
+
+            </block>
+
+
+            <!-- 1：已预约 -->
+            <block wx:elif='{{notice.status === 1}}'>
+
+                <!-- 预约标题：面试预约、考核答辩预约 -->
+                <view class="weui-msg__title animated {{change.two}}">{{notice.title}}
+                </view>
+
+                <!-- 方向 -->
+                <view class="weui-msg__desc direction animated {{change.two}}">方向：{{notice.direction===0?'前端':'后台'}}
+                </view>
+
+
+                <block wx:if='{{num !== -1}}'>
+                    <view class="weui-msg__desc animated {{change.two}}">{{notice.content}}</view>
+
+
+
+                    <!-- 票！！！！ -->
+
+                    <view class="ticket-center animated {{change.ticket}}">
+
+
+                        <div class="cardWrap">
+                            <div class="card cardLeft">
+                                <view class="transformView">
+
+                                    <view class="text1">
+                                        <text class="t-title">C.A.T </text>
+                                        <text class="t-content"> 面试 ---</text>
+                                        <text class="t-content"> {{notice.name}}</text>
+                                    </view>
+
+                                    <view class="t-time iconfont">
+                                        <view class="t-time-icon"></view>
+                                        <view class="t-time-text">{{notice.batch}}
+                                        </view>
+
+                                    </view>
+                                </view>
+
+                            </div>
+                            <div class="card cardRight">
+                                <view class="t-num iconfont">{{notice.arrangeCode}}</view>
+                            </div>
+                            <view class="clear"></view>
+                        </div>
+
+                    </view>
+
+                    <view class="weui-msg__desc text1 tips animated {{change.two}} color-myy">请“拿”好小票，准备面试吧!</view>
+                    <view class="weui-msg__desc text1 tips animated {{change.two}} color-myy">不要太紧张哦，尽可能展现你自己~祝你面试顺利！</view>
+                    <view>你前面有
+                        <text class="num-text">{{num}}</text> 人</view>
+
+                    <view class="weui-msg__desc text1 tips animated {{change.two}}">*{{notice.prompt}}
+                    </view>
+                </block>
+
+                <block wx:elif='{{num === -1}}'>
+                    <view class="mar-70">面试已完成，请耐心等待结果吧~</view>
+
+
+                    <button class="mar-70" bindtap="back">返回</button>
+                </block>
+            </block>
+
+
+            <!-- 2：未开放 -->
+            <block wx:elif='{{notice.status === 2}}'>
+                <view class="weui-msg__desc">{{statusText.no}}
+                </view>
+                <button>返回</button>
+            </block>
+
+
+
+
+
+
+        </view>
+        <view class="weui-msg__extra-area">
+            <view class="weui-footer">
+                <view class="weui-footer__links">
+                    <navigator url="/pages/studio/studio" class="weui-footer__link" open-type="switchTab">C.A.T 工作室</navigator>
+                </view>
+                <view class="weui-footer__text">Copyright © 2019-2020 C.A.T Studio</view>
+            </view>
+        </view>
+    </view>
+</view>
+
+
+<block wx:else>
+    <view class="loading-style">
+        <yy-loading></yy-loading>
+    </view>
+
+</block>

@@ -84,7 +84,10 @@ App({
             commentArticle: '/article/comment',
             agree: '/article/agree',
             login: '/user/login',
-            progressRes: '/user/getInterviewSchedule'
+            progressRes: '/user/getInterviewSchedule',
+            queue:'/user/applyInterview',
+            getArrange:'/user/getArrange',
+            refreshArrange:'/user/refreshArrange'
         },
         errorMsg: {},
         status: {

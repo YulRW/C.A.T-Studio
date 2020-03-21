@@ -1,0 +1,14 @@
+<view class="loading">
+    <section class="demoBox" id="google">
+        <section class="demoList">
+            <section class="demoItem">
+                <section class="container google-animation-5">
+                    <section class="shape shape-1"></section>
+                    <section class="shape shape-2"></section>
+                    <section class="shape shape-3"></section>
+                    <section class="shape shape-4"></section>
+                </section>
+            </section>
+        </section>
+    </section>
+</view>

@@ -9,6 +9,9 @@
                 <van-cell title="考核进度" is-link link-type="navigateTo" url="/pages/user/progress/progress">
                 </van-cell>
 
+                <van-cell title="预约排队" is-link link-type="navigateTo" url="/pages/user/queue/queue">
+                </van-cell>
+
             </block>
             <!-- <van-cell title="我的文章" is-link /> -->
             <!-- <van-cell title="我的收藏" is-link /> -->
@@ -20,9 +23,10 @@
 
         </block>
         <block wx:else>
-            <view class="center">
-                <image src="https://image.weilanwl.com/gif/loading-1.gif" mode="widthFix" class="loading"></image>
-            </view>
+            <!-- <view class="center"> -->
+                <!-- <image src="https://image.weilanwl.com/gif/loading-1.gif" mode="widthFix" class="loading"></image> -->
+                <yy-loading></yy-loading>
+            <!-- </view> -->
         </block>
     </van-cell-group>
 

@@ -1,6 +1,7 @@
 {
     "pages": [
         "pages/user/user/user",
+        "pages/user/queue/queue",
         "pages/signUpN/signUpN",
         "pages/signUpBefore/signUpBefore",
         "pages/user/progress/progress",

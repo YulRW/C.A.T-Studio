@@ -45,13 +45,21 @@
 </view>
 
 
-<view wx:else class="center-x-y">
+<!-- <view wx:else class="center-x-y"> -->
 
-    <!-- <view class="weui-loadmore">
+<!-- <view class="weui-loadmore">
         <view class="weui-loading"></view>
         <view class="weui-loadmore__tips">正在加载...</view>
     </view> -->
 
-    <image src="https://image.weilanwl.com/gif/loading-1.gif" mode="widthFix" class="loading"></image>
+<!-- <image src="https://image.weilanwl.com/gif/loading-1.gif" mode="widthFix" class="loading"></image>
 
-</view>
+</view> -->
+<block wx:else>
+
+    <view class="loading-style">
+        <yy-loading></yy-loading>
+    </view>
+
+
+</block>

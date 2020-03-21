@@ -16,8 +16,9 @@ const majorArray = {
     '计算机学院': ['软件工程', '计算机科学与技术', '网络工程', '信息安全'],
     '自动化学院': ["自动化", "数据科学与大数据技术", "电气工程及其自动化", "物联网工程"],
     '信息工程学院': ["信息工程", "通信工程", "电子信息工程", "	集成电路设计与集成系统"],
-    "轻工化工学院": ["机械电子工程", "测控技术与仪器", "工业工程", "包装工程", "数字媒体技术", "车辆工程", "机械设计制造及其自动化"],
-    "土木与交通工程学院": ["化学工程与工艺", "应用化学", "食品科学与工程"],
+    "机电工程学院": ["机械电子工程", "测控技术与仪器", "工业工程", "包装工程", "数字媒体技术", "车辆工程", "机械设计制造及其自动化"],
+    "轻工化工学院": ["化学工程与工艺", "应用化学", "食品科学与工程"],
+    "土木与交通工程学院": ["土木工程", "道路桥梁与渡河工程", "城市地下空间工程", "给排水科学与工程", "建筑环境与能源应用工程", "工程管理", "测绘工程", "交通运输"],
     "材料与能源学院": ["材料成型及控制工程卓越工程师班", "材料类创新班", "新能源材料与器件", "微电子科学与工程", "金属材料工程", "能源与动力工程", "高分子材料与工程", "材料成型及控制工程"],
     "环境科学与工程学院": ["安全工程", "环境生态工程", "环境科学", "环境工程"],
     "外国语学院": ["日语", "商务英语", "英语", "翻译"],
@@ -26,21 +27,157 @@ const majorArray = {
 }
 
 Page({
-    toIndex(){
+    data: {
+        // ----------------季节-------------------
+        // 快捷颜色组
+        color: {
+            bgdcolor: '#cbe9f4',
+            light: '#93d5eb',
+            medium: '#66bbd8',
+            dark: '#4da2bb',
+            bush: '#fff',
+            trunk: '#c2653c',
+            trunk2: '#9d5d5d',
+            cloud: '#fff',
+            sun: 'transparent',
+            rabbit: '#fff',
+        },
+
+        // 快捷颜色数组
+        lightColours: ["#93d5eb", "#add63a", "#c5d63a", "#febe42"],
+        mediumColours: ["#66bbd8", "#92c938", "#acc52b", "#ff9d25"],
+        darkColours: ["#4da2bb", "#2a9d5c", "#89a503", "#ff6b2f"],
+        backgroundColours: ["#cbe9f4", "#daf8ff", "#feec98", "#ffdc8a"],
+        bushColours: ["#ffffff", "#3ebf6d", "#99b31a", "#fd6d2e"],
+        cloudColours: ["#ffffff", "#ffffff", "#ffffff", "#eaf9fe"],
+        seasons: ["Winter", "Spring", "Summer", "Autumn"],
+
+        // 当前季节
+        c: 0,
+        season: '',
+
+        // 季节组件出现与消失
+        display: {
+            snow: 'none',
+            rain: 'none',
+            rabbit: false,
+            rainbow: false,
+            flower: false
+
+        },
+
+        // 选项卡展示状态
+        cardShow: [
+            'block', 'none', 'none', 'none'
+        ],
+
+        // 4个选项卡的动画类型
+        animateType: ['', '', '', ''],
+
+        //当前选项卡
+        curCard: 0,
+
+        // 季节动画
+        seasonAnimate: [],
+
+        // ---------------报名表单----------------
+        // 正则集
+        re: {
+            name: '^[\\u4e00-\\u9fa5]{2,10}$',
+            number: '^3[12]1900\\d{4}$',
+            phone: '^[1][3,4,5,6,7,8,9][0-9]{9}$',
+            weChat: ['^[a-zA-Z][a-zA-Z0-9_-]{5,19}$', '^[1][3,4,5,6,7,8,9][0-9]{9}$']
+
+        },
+        pla: {
+            name: '请输入真实姓名哦',
+        },
+
+        // 报名信息
+        signUpInfo: {
+            name: '',
+            number: '',
+            gender: '',
+            phone: '',
+            college: '',
+            major: '',
+            direction: "1",
+            skill: '',
+            introduce: "",
+
+        },
+
+        // 错误信息
+        errMsg: {
+            name: '请再检查输入的真名哦',
+            number: '朋友，你确定是19级的嘛？',
+            phone: '那个...手机号是中国的吗？',
+            skill: 'none',
+            introduce: 'none',
+            weChat: '格式不对吧？(手机同号填手机号也可)'
+
+        },
+
+        //成功消息
+        sucMsg: {
+            name: 'nice!我们眼熟你了~',
+            number: '不错~下一步吧',
+            phone: '很好~我们会好好保密的',
+            weChat: '很好~我们会好好保密的',
+            skill: '',
+            introduce: '',
+        },
+
+        formStatus: {
+            name: false,
+            number: false,
+            phone: false,
+            weChat: false,
+            skill: false,
+            introduce: false,
+        },
+
+        // 方向选择状态
+        checkboxSelect: false,
+
+        //学院和专业
+        columns: [{
+                values: Object.keys(majorArray),
+                className: 'column1'
+            },
+            {
+                values: majorArray['计算机学院'],
+                className: 'column2',
+                defaultIndex: 0
+            }
+        ],
+
+        //弹窗状态管理
+
+        //学院与专业弹窗
+        showMajorPop: false,
+
+        //报名按钮动画
+        signUpAM: false,
+        signUpText: false,
+
+        //报名状态：1-未报名且没错；2-已报名 ；3-表单有误
+        signUpStatus: 1,
+
+    },
+
+    toIndex() {
         wx.switchTab({
             url: '/pages/user/user/user',
         })
     },
 
-    test(e){
-        console.log(e)
-    },
     // 报名按钮动画结束监听
     handleSignUpAM() {
         // 判错
-        this.signUpIsError(this.data.errMsg)
+        this.signUpIsError(this.data.formStatus)
 
-        
+
         //按时按钮展开后文本
         this.setData({
             signUpText: true
@@ -52,7 +189,7 @@ Page({
         let i;
         var error = false;
         for (i in errorObj) {
-            if (!this.isEmpty(errorObj[i]) || errorObj[i] === 'none') {
+            if (errorObj[i] === false) {
                 error = true;
             }
         }
@@ -108,13 +245,13 @@ Page({
 
 
         var data = {
-            weChatNumber: info.wechatNumber,
+            name: info.name,
             schoolNumber: info.number,
             phone: info.phone,
+            weChatNumber: info.weChat,
             college: info.college,
-            gender: info.gender,
             major: info.major,
-            name: info.name,
+            gender: info.gender,
             direction: Number(info.direction),
             selfIntroduction: info.introduce,
             skills: info.skill,
@@ -157,14 +294,6 @@ Page({
             })
 
             .then(res => {
-                //清空输入框
-                // this.clearInput();
-
-                //禁止再次报名
-                // this.setData({
-                //     disabled: true
-                // })
-
 
                 if (res.confirm) {
                     return yy.requestSubscribeMessage({
@@ -226,28 +355,18 @@ Page({
 
     // 处理姓名
     handleName(e) {
-        this.setData({
-            'signUpInfo.name': e.detail.value
-        })
-
-        let re = /^[\u4e00-\u9fa5]{2,10}$/;
-
-        if (e.detail.value === '') {
+        if (e.detail.status === 3) {
             this.setData({
-                'errMsg.name': "",
-                'sucMsg.name':""
-            })
-        } else if (!re.test(e.detail.value)) {
-            this.setData({
-                'errMsg.name': "请再检查输入的真名哦",
-                'sucMsg.name':''
+                'formStatus.name': true
             })
         } else {
             this.setData({
-                'errMsg.name': "",
-                'sucMsg.name': "nice!我们眼熟你了~"
+                'formStatus.name': false
             })
         }
+        this.setData({
+            'signUpInfo.name': e.detail.value
+        })
     },
 
     //处理学号
@@ -255,25 +374,15 @@ Page({
         this.setData({
             'signUpInfo.number': e.detail.value
         })
-
         this.handleGender(e.detail.value);
 
-        let re = /^3[12]1900\d{4}$/;
-
-        if (e.detail.value === '') {
+        if (e.detail.status === 3) {
             this.setData({
-                'errMsg.number': "",
-                'sucMsg.number': ""
-            })
-        } else if (!re.test(e.detail.value)) {
-            this.setData({
-                'errMsg.number': "朋友，你确定是19级的嘛？",
-                'sucMsg.number': ''
+                'formStatus.number': true
             })
         } else {
             this.setData({
-                'errMsg.number': "",
-                'sucMsg.number': "不错~下一步吧"
+                'formStatus.number': false
             })
         }
     },
@@ -302,54 +411,33 @@ Page({
         this.setData({
             'signUpInfo.phone': e.detail.value
         })
-        let re = /^[1][3,4,5,6,7,8,9][0-9]{9}$/;
 
-        if (e.detail.value === '') {
+        if (e.detail.status === 3) {
             this.setData({
-                'errMsg.phone': "",
-                'sucMsg.phone': ""
-            })
-        } else if (!re.test(e.detail.value)) {
-            this.setData({
-                'errMsg.phone': "那个...手机号是中国的吗？",
-                'sucMsg.phone': ''
+                'formStatus.phone': true
             })
         } else {
             this.setData({
-                'errMsg.phone': "",
-                'sucMsg.phone': "很好~我们会好好保密的"
+                'formStatus.phone': false
             })
         }
     },
 
     //处理微信号
     handleWeChat(e) {
-
         this.setData({
-            'signUpInfo.wechatNumber': e.detail.value
+            'signUpInfo.weChat': e.detail.value
         })
-
-        let re = /^[a-zA-Z][a-zA-Z0-9_-]{5,19}$/;
-        let re2 = /^[1][3,4,5,6,7,8,9][0-9]{9}$/;
-
-        if (e.detail.value === '') {
+        if (e.detail.status === 3) {
             this.setData({
-                'errMsg.weChat': "",
-                'sucMsg.weChat': ""
-            })
-        } else if (!re.test(e.detail.value) && !re2.test(e.detail.value)) {
-            this.setData({
-                'errMsg.weChat': "格式不对吧？(手机同号填手机号也可)",
-                'sucMsg.weChat': ''
+                'formStatus.weChat': true
             })
         } else {
             this.setData({
-                'errMsg.weChat': "",
-                'sucMsg.weChat': "很好~我们会好好保密的"
+                'formStatus.weChat': false
             })
         }
 
-        
     },
 
     //处理方向选择
@@ -363,7 +451,6 @@ Page({
 
     //处理学院专业
     handleMajor(e) {
-        console.log(e)
         let value = e.detail.value
         this.setData({
             'signUpInfo.college': value[0],
@@ -374,14 +461,18 @@ Page({
 
     //处理技能介绍
     handleSkill(e) {
+        this.setData({
+            'signUpInfo.skill': e.detail.value
+        })
         if (this.isEmpty(e.detail.value)) {
             this.setData({
-                'errMsg.skill': '只要你觉得自己会的都可以写上去呀'
+                'errMsg.skill': '只要你觉得自己会的都可以写上去呀',
+                'formStatus.skill': false
             })
         } else {
             this.setData({
                 'errMsg.skill': '',
-                'signUpInfo.skill': e.detail.value
+                'formStatus.skill': true
             })
         }
 
@@ -389,14 +480,19 @@ Page({
 
     //处理自我介绍
     handleIntroduce(e) {
+        this.setData({
+            'signUpInfo.introduce': e.detail.value
+        })
+
         if (this.isEmpty(e.detail.value)) {
             this.setData({
-                'errMsg.introduce': '建议还是简单介绍下你自己啦~'
+                'errMsg.introduce': '建议还是简单介绍下你自己啦~',
+                'formStatus.introduce': false,
             })
         } else {
             this.setData({
                 'errMsg.introduce': '',
-                'signUpInfo.introduce': e.detail.value
+                'formStatus.introduce': true,
             })
         }
     },
@@ -525,157 +621,6 @@ Page({
             signUpAM: true
         })
     },
-    data: {
-
-        // ----------------季节-------------------
-        // 快捷颜色组
-        color: {
-            bgdcolor: '#cbe9f4',
-            light: '#93d5eb',
-            medium: '#66bbd8',
-            dark: '#4da2bb',
-            bush: '#fff',
-            trunk: '#c2653c',
-            trunk2: '#9d5d5d',
-            cloud: '#fff',
-            sun: 'transparent',
-            rabbit: '#fff',
-        },
-
-        // 快捷颜色数组
-        lightColours: ["#93d5eb", "#add63a", "#c5d63a", "#febe42"],
-        mediumColours: ["#66bbd8", "#92c938", "#acc52b", "#ff9d25"],
-        darkColours: ["#4da2bb", "#2a9d5c", "#89a503", "#ff6b2f"],
-        backgroundColours: ["#cbe9f4", "#daf8ff", "#feec98", "#ffdc8a"],
-        bushColours: ["#ffffff", "#3ebf6d", "#99b31a", "#fd6d2e"],
-        cloudColours: ["#ffffff", "#ffffff", "#ffffff", "#eaf9fe"],
-        seasons: ["Winter", "Spring", "Summer", "Autumn"],
-
-        // 当前季节
-        c: 0,
-        season: '',
-
-        // 季节组件出现与消失
-        display: {
-            snow: 'none',
-            rain: 'none',
-            rabbit: false,
-            rainbow: false,
-            flower: false
-
-        },
-
-        // 报名按钮初始
-        signUpCSS: {
-            backgroundColor: '#41aaf1',
-            width: '100rpx',
-            height: '100rpx',
-            borderRadius: '100rpx',
-            boxShadow: '0 3px 6px 0 rgba(0, 0, 0, 0.3)',
-            transform: 'translateY(0rpx)',
-        },
-
-        //报名按钮关闭
-        btnCloseCSS: {
-            backgroundColor: '#41aaf1',
-            width: '100rpx',
-            height: '100rpx',
-            borderRadius: '100rpx',
-            boxShadow: '0 3px 6px 0 rgba(0, 0, 0, 0.3)',
-            transform: 'translateY(0rpx)',
-        },
-
-        // 报名按钮开启
-        btnOpenCSS: {
-            backgroundColor: '#fff',
-            width: '500rpx',
-            height: '300rpx',
-            borderRadius: '15px',
-            boxShadow: '0 3px 6px 0 rgba(0, 0, 0, 0.3)',
-            transform: 'translateY(-100rpx)',
-        },
-
-        // 选项卡展示状态
-        cardShow: [
-            'block', 'none', 'none', 'none'
-        ],
-
-        // 4个选项卡的动画类型
-        animateType: ['', '', '', ''],
-
-        //当前选项卡
-        curCard: 0,
-
-        // 季节动画
-        seasonAnimate:[],
-
-        // ---------------报名表单----------------
-
-        // 报名信息
-        signUpInfo: {
-            name: '',
-            number: '',
-            gender: '',
-            phone: '',
-            wechatNumber: '',
-            college: '',
-            major: '',
-            direction: "1",
-            skill: '',
-            introduce: "",
-
-        },
-
-        // 错误信息
-        errMsg: {
-            name: '',
-            number: '',
-            phone: '',
-            skill: 'none',
-            introduce: 'none',
-            weChat:''
-            
-        },
-
-        //成功消息
-        sucMsg:{
-            name: '',
-            number: '',
-            phone: '',
-            weChat: '',
-            skill: '',
-            introduce: '',
-        },
-
-        // 方向选择状态
-        checkboxSelect: false,
-
-        //学院和专业
-        columns: [{
-                values: Object.keys(majorArray),
-                className: 'column1'
-            },
-            {
-                values: majorArray['计算机学院'],
-                className: 'column2',
-                defaultIndex: 0
-            }
-        ],
-
-        //弹窗状态管理
-
-        //学院与专业弹窗
-        showMajorPop: false,
-
-        //报名按钮动画
-        signUpAM: false,
-        signUpText: false,
-
-        //报名状态：1-未报名且没错；2-已报名 ；3-表单有误
-        signUpStatus: 1,
-
-    },
-
 
     // ------------------------------------方法--------------------------------------
     //判空
@@ -704,6 +649,7 @@ Page({
         })
     },
     onLoad(e) {
+        let re = /^[1][3,4,5,6,7,8,9][0-9]{9}$/;
         // 开启季节动画
         this.updateSeasons();
         console.log(Object.keys(majorArray))

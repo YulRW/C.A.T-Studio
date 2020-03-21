@@ -17,31 +17,36 @@ Page({
     },
     //授权成功后
     getUserInfo: (e) => {
-        app.globalData.userInfo = e.detail.userInfo;
-
-        yy.login({})
-
-            .then(res => {
-                return yy.request({
-                    url: `${app.globalData.ip.kjb}${app.globalData.requestName.login}`,
-                    method: "POST",
-                    data: {
-                        code: res.code,
-                        iv: e.detail.iv,
-                        encryptedData: e.detail.encryptedData
-                    },
+        if (e.detail.errMsg !== 'getUserInfo:ok') {
+            yy.switchTab({
+                url: '/pages/user/user/user'
+            })
+        } else {
+            app.globalData.userInfo = e.detail.userInfo;
+            yy.login({})
+                .then(res => {
+                    return yy.request({
+                        url: `${app.globalData.ip.kjb}${app.globalData.requestName.login}`,
+                        method: "POST",
+                        data: {
+                            code: res.code,
+                            iv: e.detail.iv,
+                            encryptedData: e.detail.encryptedData
+                        },
+                    })
                 })
-            })
 
-            .then(res => {  //登录成功！返回信息
-                app.globalData.userData = res.data.data;
-                app.globalData.status.userData = true;
-                yy.switchTab({
-                    url: '/pages/user/user/user',
-                });
-            })
+                .then(res => { //登录成功！返回信息
+                    app.globalData.userData = res.data.data;
+                    app.globalData.status.userData = true;
+                    yy.switchTab({
+                        url: '/pages/user/user/user',
+                    });
+                })
+        }
+
     },
-    backPage(){
+    backPage() {
         yy.switchTab({
             url: '/pages/user/user/user',
         });

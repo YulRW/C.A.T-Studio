@@ -1,15 +1,15 @@
 <view class="out {{msgColor}}">
     <span class="input input--hoshi {{focusCSS === true ? 'focusAfter' : 'focusBefore'}} animated ">
         <!-- rotateIn -->
-        <input class="input__field input__field--hoshi" type="text" id="input-4" bindfocus='handleFocus' bindblur="handleBlur" placeholder="{{placeholderMsg}}" bindinput='handleInput' maxlength='{{maxlength}}' />
+        <input class="input__field input__field--hoshi" type="text" id="input-4" bindfocus='_handleFocus' bindblur="_handleBlur" placeholder="{{placeholderMsg}}" bindinput='handleInput' maxlength='{{maxlength}}' />
         <label class="input__label input__label--hoshi input__label--hoshi-color-1 " for="input-4">
             <span class="input__label-content input__label-content--hoshi">{{title}}</span>
         </label>
     </span>
-    <block wx:if='{{err}}'>
+    <block wx:if='{{status === 2}}'>
         <view class="err">{{err}}</view>
     </block>
-    <block wx:elif='{{suc}}'>
+    <block wx:elif='{{status === 3}}'>
         <view class="suc">{{suc}}</view>
     </block>
 

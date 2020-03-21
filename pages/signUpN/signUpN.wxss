@@ -163,7 +163,7 @@
 
 .button-6 .layer, .button-6 .knobs, .button-6 .knobs:before {
     transform: rotateZ(0);
-    transition: 0.4s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+    transition: 0.4s cubic-bezier(0.86, 0, 0.07, 1) all;
 }
 
 .select-after .knobs {

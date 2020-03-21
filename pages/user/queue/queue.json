@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "yy-loading": "/components/yy-loading/yy-loading"
+  },
+  "navigationBarTitleText": "预约"
+}

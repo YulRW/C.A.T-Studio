@@ -31,3 +31,8 @@ page, .page {
 .loading{
     margin-bottom: 10vh;
 }
+
+
+.loading-style{
+    margin-top: 20vh;
+}

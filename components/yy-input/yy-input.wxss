@@ -12,18 +12,18 @@
     animation: anim-1 0.3s forwards;
 }
 
+
+/* 通常颜色 */
 .usuColor .input__label--hoshi-color-1::after {
     border-color: hsl(200, 100%, 50%);
 }
 
-.input__label--hoshi-color-2::after {
-    border-color: var(--suc);
-}
-
+/* 出错颜色 */
 .errColor .input__label--hoshi-color-1::after {
     border-color: var(--err);
 }
 
+/* 成功颜色 */
 .sucColor .input__label--hoshi-color-1::after {
     border-color: var(--suc);
 }

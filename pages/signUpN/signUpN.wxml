@@ -231,9 +231,9 @@
 
             <view class="zhanwei"></view>
 
-            <yy-input title='姓名' placeholder='请输入真实姓名哦' err='{{errMsg.name}}' bindinput='handleName' maxlength='10' suc='{{sucMsg.name}}'/>
-            <yy-input title='学号' placeholder='同样也请输入真实学号哦' err='{{errMsg.number}}' bindinput="handleNumber" maxlength='10' suc='{{sucMsg.number}}'/>
-            <yy-input title='手机号' placeholder='请输入11位的手机号码' err='{{errMsg.phone}}' bindinput="handlePhone" maxlength='11' suc='{{sucMsg.phone}}'/>
+            <yy-input title='姓名' placeholder='{{pla.name}}' err='{{errMsg.name}}' bindinput='handleName' maxlength='10' suc='{{sucMsg.name}}' regular='{{re.name}}' test="{{aaa}}"/>
+            <yy-input title='学号' placeholder='同样也请输入真实学号哦' err='{{errMsg.number}}' bindinput="handleNumber" maxlength='10' suc='{{sucMsg.number}}' regular='{{re.number}}'/>
+            <yy-input title='手机号' placeholder='请输入11位的手机号码' err='{{errMsg.phone}}' bindinput="handlePhone" maxlength='11' suc='{{sucMsg.phone}}' regular='{{re.phone}}'/>
 
             <view class="btn-group iconfont">
                 <view class="change-btn next" bindtap="next" data-id="0"></view>
@@ -251,7 +251,7 @@
                 </view>
             </view>
             <view class="zhanwei"></view>
-            <yy-input title='微信号' placeholder='这样可以方便我们联系你' bindinput="handleWeChat" maxlength='40' err='{{errMsg.weChat}}' suc='{{sucMsg.weChat}}'/>
+            <yy-input title='微信号' placeholder='这样可以方便我们联系你' bindinput="handleWeChat" maxlength='40' err='{{errMsg.weChat}}' suc='{{sucMsg.weChat}}' regular='{{re.weChat}}'/>
             <view class="checkbox-text">
                 <view>学院 & 专业</view>
                 <view class="select-card " bindtap="showMajorPop"> {{signUpInfo.college ? signUpInfo.college : '请选择'}} -- {{signUpInfo.major ? signUpInfo.major : '请选择'}}</view>
